@@ -1,45 +1,26 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "Players/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Players.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Players.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "Players/1.0.0": {
-      "type": "project",
-      "path": "../Players/Players.csproj",
-      "msbuildProject": "../Players/Players.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "Players >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\omriv\\.nuget\\packages\\": {}
+    "C:\\Users\\Alex\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj",
+      "projectUniqueName": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj",
       "projectName": "DominoEngine",
-      "projectPath": "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj",
-      "packagesPath": "C:\\Users\\omriv\\.nuget\\packages\\",
-      "outputPath": "D:\\Escuela\\Programación\\domino\\DominoEngine\\obj\\",
+      "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj",
+      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+      "outputPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\omriv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -50,11 +31,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj": {
-              "projectPath": "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -81,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

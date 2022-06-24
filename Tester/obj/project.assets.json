@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/DominoEngine.dll": {}
         }
+      },
+      "Players/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DominoEngine": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Players.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Players.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../DominoEngine/DominoEngine.csproj",
       "msbuildProject": "../DominoEngine/DominoEngine.csproj"
+    },
+    "Players/1.0.0": {
+      "type": "project",
+      "path": "../Players/Players.csproj",
+      "msbuildProject": "../Players/Players.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DominoEngine >= 1.0.0"
+      "DominoEngine >= 1.0.0",
+      "Players >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,6 +72,9 @@
           "projectReferences": {
             "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj": {
               "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj"
+            },
+            "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj": {
+              "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj"
             }
           }
         }
