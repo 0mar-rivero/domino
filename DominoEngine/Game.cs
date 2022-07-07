@@ -3,35 +3,38 @@ using System.Data;
 
 namespace DominoEngine;
 
-public class Game<T> : IEnumerable<GameState<T>> { //hay que hacerlo
-    private Judge<T> _judge;
-    private Partida<T> _partida;
+public class Game<T> : IEnumerable<GameState<T>>, IWinnerSelector<T> {
+    private Judge<T>? _judge; // Juez que guiara este Game por completo
+    private Partida<T>? _partida; 
 
-    public Game(Judge<T> judge, List<Team<T>> teams)
-    {
+    public Game(Judge<T> judge, IEnumerable<Team<T>> teams) {
         _judge = judge;
         _partida = new Partida<T>(teams);
     }
 
-    public IEnumerator<GameState<T>> GetEnumerator()
-    {
-        _judge.Start(_partida);
-        var first_state = new List<GameState<T>>() { new GameState<T>(_partida.Board, _partida.Hands) };
+    public Game() { }
+
+    public IEnumerator<GameState<T>> GetEnumerator() {
+        _judge!.Start(_partida!); // Se preparan las condiciones para comenzar el Game
+        // Crear el primer GameState, antes de la primera jugada
+        var first_state = new List<GameState<T>>() {new GameState<T>(_partida!.Board, _partida.Hands)};
+        // Devolver los GameState uno a uno mientras se efectuan las jugadas
         return first_state.Concat(_judge.Play(_partida).
         Select((player, i) => new GameState<T>(_partida.Board, _partida.Hands, i, player))).GetEnumerator();
     }
+    
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
+    public IEnumerable<Team<T>> Winner() => _judge!.Winner(_partida!);
 
-    public Team<T> Winner() => _judge.Winner(_partida);
+    public IWinnerSelector<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) => new Game<T>(judge, teams);
+
+    public IEnumerable<Game<T>> Games(IWinnerSelector<T> winsel) => new List<Game<T>>(){this};
 }
 
+// Representa toda la informacion necesaria para un expectador luego de cada jugada
 public record GameState<T>(List<Move<T>> Board, Dictionary<Player<T>, Hand<T>> Hands,
-                int Turn = -1, Player<T> PlayerToPlay = default!)
-{
+    int Turn = -1, Player<T> PlayerToPlay = default!) {
     public override string ToString()
     {
         string result = "";

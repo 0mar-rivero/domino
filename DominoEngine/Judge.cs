@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace DominoEngine;
 
 public class Judge<T> {
@@ -26,32 +24,38 @@ public class Judge<T> {
 	}
 
 	public IEnumerable<Player<T>> Play(Partida<T> partida) {
-		foreach (var (i, player) in _turner.Players(partida!).Enumerate().SkipWhile(x => Salir(partida, x.Item2))) {
-			yield return player;
-			if (i is 0) continue;
+		foreach (var (i, player) in _turner.Players(partida).Enumerate().SkipWhile(x => Salir(partida, x.Item2))) {
+			if (i is 0) {
+				yield return player;
+				continue;
+			}
 			if (_finisher.GameOver(partida!))
 				yield break;
 
 			var validMoves = GenValidMoves(partida, player).ToHashSet();
-			var move = player.Play(validMoves, partida!.Board, x => partida.InHand(x), x => _scorer.Scorer(partida!, x));
+			var move = player.Play(validMoves, x => partida.PassesInfo(x),partida.Board, x => partida.InHand(x),
+				x => _scorer.Scorer(partida!, x), (x,y) => partida.Partnership(x,y));
 			if (!validMoves.Contains(move)) move = validMoves.FirstOrDefault();
-			partida!.AddMove(move!);
-			if (!move!.Check) partida.RemoveFromHand(player, move.Ficha!);
+			partida.AddMove(move!);
+			partida.AddValidsTurns(_matcher.ValidsTurns(partida, partida.PlayerId(player)));
+			if (!move!.Check) partida.RemoveFromHand(player, move.Token!);
+			yield return player;
 		}
 	}
 
 	private bool Salir(Partida<T> partida, Player<T> player) {
 		var validMoves = GenSalidas(partida, player).ToHashSet();
 		if (validMoves.IsEmpty()) return true;
-		var move = player.Play(validMoves, partida!.Board, x => partida.InHand(x), x => _scorer.Scorer(partida!, x));
+		var move = player.Play(validMoves, x => partida.PassesInfo(x),partida!.Board, x => partida.InHand(x), 
+			x => _scorer.Scorer(partida, x), (x,y) => partida.Partnership(x,y));
 		if (!validMoves.Contains(move)) move = validMoves.FirstOrDefault();
-		if (!move!.Check) partida!.RemoveFromHand(player, move.Ficha!);
+		if (!move!.Check) partida!.RemoveFromHand(player, move.Token!);
 		partida!.AddMove(move!);
 		return false;
 	}
 
 	private IEnumerable<Move<T>> GenMoves(Partida<T> partida, Player<T> player) {
-		var playerId = partida!.PlayerId(player);
+		var playerId = partida.PlayerId(player);
 		yield return new Move<T>(playerId);
 		foreach (var (head, tail) in partida.Hand(player)) {
 			yield return new Move<T>(playerId, false, -1, head, tail);
@@ -73,11 +77,12 @@ public class Judge<T> {
 			yield return move;
 	}
 
-	internal Team<T> Winner(Partida<T> partida) => _scorer.Winner(partida);
+	internal IEnumerable<Team<T>> Winner(Partida<T> partida) => _scorer.Winner(partida);
 }
 
 public class ClassicJudge : Judge<int>
 {
     public ClassicJudge() : base(new ClassicGenerator(10), new ClassicDealer<int>(10), 
-		new ClassicTurner<int>(), new LonganaMatcher<int>(), new ClassicScorer(), new ClassicFinisher<int>()) { }
+		new ClassicTurner<int>(), new ClassicMatcher<int>(), 
+		new ClassicScorer(), new ClassicFinisher<int>()) { }
 }
