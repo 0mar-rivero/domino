@@ -1,6 +1,6 @@
 ﻿namespace DominoEngine;
 
-public struct Token<T> {
+public readonly struct Token<T> {
 	public readonly T Head;
 	public readonly T Tail;
 
@@ -17,15 +17,12 @@ public struct Token<T> {
 
 	public bool Equals(Token<T> token) =>
 		(Equals(Head, token.Head) && Equals(Tail, token.Tail)) ||
-		(Equals(Head, token.Tail) && Equals(Tail, token.Head));
+		(Equals(Head, token.Tail) && Equals(Tail, token.Head)); 
 
 	public void Deconstruct(out T head, out T tail) {
 		head = Head;
 		tail = Tail;
 	}
 
-    public override string ToString()
-    {
-        return $"({Head}|{Tail})";
-    }
+    public override string ToString() => $"({Head}|{Tail})";
 }
