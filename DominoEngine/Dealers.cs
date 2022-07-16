@@ -10,7 +10,7 @@ public class ClassicDealer<T> : IDealer<T>
     }
 
     /// <summary>
-    /// Despues de tomar n fichas, le repartimos m a cada jugador
+    /// Despues de tomar numberOfPieces fichas, le repartimos pieceForPlayer a cada jugador
     /// </summary>
     /// <param name="partida"></param>
     /// <param name="tokens"></param>

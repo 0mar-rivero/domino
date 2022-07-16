@@ -127,5 +127,5 @@ public class Judge<T> {
 public class ClassicJudge : Judge<int> {
     public ClassicJudge() : base(new ClassicGenerator(), new ClassicDealer<int>(55, 10), 
 		new ClassicTurner<int>(), new SideMatcher<int>().Intersect(new EqualMatcher<int>()), 
-		new ClassicScorer(), new EmptyHandFinisher<int>().Join(new AllCheckFinisher<int>())) { }
+		new ClassicScorer(), new TurnCountFinisher<int>(5)) { }
 }

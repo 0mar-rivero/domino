@@ -221,3 +221,6 @@ Luego de ordenar estos valores, se hace un `Average()` entre todos ellos, cada u
 Luego de ordenar estos valores, se hace un `Average()` entre todos ellos, cada uno con una relevancia del 100%, por último una comparación más con un criterio de botagorda al 50%.
 
 * `SmartPlayer<T>`: Este jugador tiene cierta heurística para jugar. Tiene disponible la forma de organizar jugadas del los players `CarrierPlayer<T>`, `SupportPlayer<T>`, `DesablerPlayer<T>`. El player hace un pequeño análisis de la sitación de juego y hace un `Average` entre los tres IEnumerable, y juega en corresponecia con el análisis hecho.
+
+## Interfaz de Usuario
+Para el desarrollo de la Interfaz de Usuario usamos `Blazor` por su compatibilidad con `C#`. Para el manejo de datos usamos una clase `Singleton` y para la generación de tipos usamos `Reflection`. La interfaz permite manejar todas las opciones de variabildad de nuestras implementaciones, haciendo uso de los diferentes métodos extensores de nuestras reglas y torneos.

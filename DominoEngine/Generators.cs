@@ -49,6 +49,9 @@ public class SumPrimeGenerator : IGenerator<int>
 
 public class FiboGenerator : IGenerator<int>
 {
+    /// <summary>
+    /// Genera todas las fichas cuya suma sea un numero de Fibonacci
+    /// </summary>
     public IEnumerable<Token<int>> Generate() {
         foreach (var fibo in Fibonacci(1,1))
             for (var i = 0; i < fibo; i++)

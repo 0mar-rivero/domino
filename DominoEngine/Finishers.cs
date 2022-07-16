@@ -43,7 +43,7 @@ public class TurnCountFinisher<T> : IFinisher<T>
     }
 
     /// <summary>
-    /// El juego se acaba al llegar a un turno especifico
+    /// El juego se acaba al llegar al turno number
     /// </summary>
     /// <param name="partida"></param>
     /// <returns></returns>
@@ -62,7 +62,7 @@ public class PassesCountFinisher<T> : IFinisher<T>
     }
 
     /// <summary>
-    /// El juego se acaba si ha habido una cantidad mayor de n pases en el tablero
+    /// El juego se acaba si ha habido una cantidad mayor de number pases en el tablero
     /// </summary>
     /// <param name="partida"></param>
     /// <returns></returns>

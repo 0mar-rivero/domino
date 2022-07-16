@@ -3,7 +3,7 @@
 namespace DominoEngine;
 
 public class Game<T> : IEnumerable<GameState<T>>, IWinneable<T> {
-    private readonly Judge<T>? _judge; // Juez que guiara este Game por completo
+    private readonly Judge<T>? _judge; // Juez que guiara este game por completo
     private readonly Partida<T>? _partida;
 
     private Game(Judge<T> judge, IEnumerable<Team<T>> teams) {
@@ -33,7 +33,7 @@ public class Game<T> : IEnumerable<GameState<T>>, IWinneable<T> {
     public IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) => new Game<T>(judge, teams);
 
     /// <summary>
-    /// Devuelve un IEnumerable de si mismo
+    /// Devuelve un IEnumerable de un elemento de si mismo
     /// </summary>
     /// <param name="winneable"></param>
     /// <returns></returns>
