@@ -212,7 +212,7 @@ Ordena los movimientos bajo 3 criterios:
 Luego de ordenar estos valores, se hace un `Average()` entre todos ellos, cada uno con una relevancia del 100%, por último una comparación más con un criterio de botagorda al 50%.
 * `DesablerPlayer<T>`: Este es un jugador cuyo único objetivo es intentar pasar a los jugadores de los equipos rivales. Ordena los movimientos bajo 3 criterios:
 
-1') A cuántos jugadores rivales podría pasar al dejar un `Tail` de ficha específico por un turno, prioriza miximizar este valor.
+1-) A cuántos jugadores rivales podría pasar al dejar un `Tail` de ficha específico por un turno, prioriza miximizar este valor.
 
 2-) No jugar por fichas por las cuales algunos de los jugadores rivales estén pasados. Intenta minimizar ese valor.
 

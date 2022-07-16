@@ -24,10 +24,19 @@ public class Game<T> : IEnumerable<GameState<T>>, IWinneable<T> {
     
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
+    /// <summary>
+    /// Devuelve el winner que declare el juez
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<Team<T>> Winner() => _judge!.Winner(_partida!);
 
     public IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) => new Game<T>(judge, teams);
 
+    /// <summary>
+    /// Devuelve un IEnumerable de si mismo
+    /// </summary>
+    /// <param name="winneable"></param>
+    /// <returns></returns>
     public IEnumerable<Game<T>> Games(IWinneable<T> winneable) => Enumerable.Repeat(this, 1);
 }
 

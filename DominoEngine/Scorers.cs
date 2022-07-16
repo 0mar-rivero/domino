@@ -1,14 +1,22 @@
-using DominoEngine;
-
-namespace Rules;
+namespace DominoEngine;
 
 public class ClassicScorer : IScorer<int>
 {
-    //Scorer clasico
+    /// <summary>
+    /// Los valores de los movimientos son los clasicos
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="move"></param>
+    /// <returns></returns>
     public double Scorer(Partida<int> partida, Move<int> move) => TokenScorer(move.Token);
 
     public double TokenScorer(Token<int> token) => token.Head + token.Tail;
 
+    /// <summary>
+    /// Gana el que se pega o tiene la data mas baja
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public IEnumerable<Team<int>> Winner(Partida<int> partida) {
         foreach (var player in partida.Players().Where(x => partida.Hands[x].IsEmpty())) {
             var winners = new List<Team<int>>(){partida.TeamOf(player)};
@@ -24,7 +32,12 @@ public class ClassicScorer : IScorer<int>
 
 public class ModFiveScorer : IScorer<int>
 {
-    // Solo devuelve puntuacion si la suma es divisible por 5
+    /// <summary>
+    /// Solo devuelve puntuacion si la suma es divisible por 5
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="move"></param>
+    /// <returns></returns>
     public double Scorer(Partida<int> partida, Move<int> move) {
         if ((TokenScorer(partida.Board[move.Turn].Token) + TokenScorer(move.Token) % 5 is 0))
             return TokenScorer(partida.Board[move.Turn].Token) + TokenScorer(move.Token);
@@ -33,10 +46,14 @@ public class ModFiveScorer : IScorer<int>
 
     public double TokenScorer(Token<int> token) => token.Head + token.Tail;
 
-    // Devuelve los equipos rankeados por la suma de la puntuacion de sus jugadores
+    /// <summary>
+    /// Devuelve los equipos rankeados por la suma de la puntuacion de sus jugadores
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public IEnumerable<Team<int>> Winner(Partida<int> partida)
         => partida.Teams().OrderByDescending(team => team.Sum(player => partida.Board.
-            Where(move => move.PlayerId == partida.PlayerId(player) && !move.Check).Sum(move => Scorer(partida, move))));
+            Where(move => move.PlayerId == Partida<int>.PlayerId(player) && !move.Check).Sum(move => Scorer(partida, move))));
 
     public override string ToString()
         => "Si la ficha suma un multiplo de 5 por donde va a jugar, ese es el valor del movimiento.\nGana el que alcance mayor puntuacion";
@@ -68,7 +85,7 @@ public class TurnDividesBoardScorer : IScorer<int>
 
     public IEnumerable<Team<int>> Winner(Partida<int> partida)
         => partida.Teams().OrderByDescending(team => team.Sum(player => partida.Board.Enumerate().
-            Where(pair => !pair.Item2.Check && pair.Item2.PlayerId == partida.PlayerId(player)).
+            Where(pair => !pair.Item2.Check && pair.Item2.PlayerId == Partida<int>.PlayerId(player)).
             Sum(pair => _scores[partida].First(x => x.turn == pair.Item1).score)));
 
     public override string ToString()
@@ -77,6 +94,12 @@ public class TurnDividesBoardScorer : IScorer<int>
 
 public static class ScorerExtensors
 {
+    /// <summary>
+    /// Invierte un IScorer
+    /// </summary>
+    /// <param name="scorer"></param>
+    /// <typeparam name="TSource"></typeparam>
+    /// <returns></returns>
     public static IScorer<TSource> Inverse<TSource>(this IScorer<TSource> scorer)
         => new InverseScorer<TSource>(scorer);
 }
@@ -89,6 +112,12 @@ internal class InverseScorer<T> : IScorer<T>
         _scorer = scorer;
     }
 
+    /// <summary>
+    /// Las fichas valen lo inverso del IScorer original
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="move"></param>
+    /// <returns></returns>
     public double Scorer(Partida<T> partida, Move<T> move)
         => _scorer.Scorer(partida, move) is 0 ? int.MaxValue : 1 / (_scorer.Scorer(partida, move));
 
@@ -96,7 +125,12 @@ internal class InverseScorer<T> : IScorer<T>
     public double TokenScorer(Token<T> token)
         => _scorer.TokenScorer(token) is 0 ? int.MaxValue : 1 / (_scorer.TokenScorer(token));
 
-        public IEnumerable<Team<T>> Winner(Partida<T> partida) => _scorer.Winner(partida).Reverse();
+    /// <summary>
+    /// Gana el que hubiera perdido en el IScorer original
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
+    public IEnumerable<Team<T>> Winner(Partida<T> partida) => _scorer.Winner(partida).Reverse();
 
     public override string ToString()
         => $@"Union:

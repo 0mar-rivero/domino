@@ -265,6 +265,11 @@ internal class TournamentComposition<T> : Tournament<T>
 
     public override IEnumerator<Game<T>> GetEnumerator() => Games(_tournament2).GetEnumerator();
 
+    /// <summary>
+    /// Genera torneos internos de la misma forma en que el externo genera games
+    /// </summary>
+    /// <param name="winneable"></param>
+    /// <returns></returns>
     public override IEnumerable<Game<T>> Games(IWinneable<T> winneable) 
         => _tournament1.SetJudge(Judge!).SetTeams(Teams!).Games(winneable); 
 
@@ -272,6 +277,10 @@ internal class TournamentComposition<T> : Tournament<T>
         => new TournamentComposition<T>(judge, teams, (Tournament<T>)(_tournament1.NewInstance(judge!, teams!)), _tournament2);
 
 
+    /// <summary>
+    /// El ganador de un torneo compuesto es el ganador del torneo externo
+    /// </summary>
+    /// <returns></returns>
     public override IEnumerable<Team<T>> Winner() => _tournament1.Winner(); 
 
     public override string ToString()

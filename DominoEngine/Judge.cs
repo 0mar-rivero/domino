@@ -1,5 +1,3 @@
-using Rules;
-
 namespace DominoEngine;
 
 public class Judge<T> {
@@ -51,7 +49,7 @@ public class Judge<T> {
 				move => _scorer.Scorer(partida!, move), partida.Partnership); // El player juega
 			if (!validMoves.Contains(move)) move = validMoves.FirstOrDefault(); // Si no es valido, se selecciona jugada valida
 			partida.AddMove(move!); // Se agrega la jugada a la partida
-			partida.AddValidsTurns(_matcher.ValidsTurns(partida, partida.PlayerId(player))); // Se agrega la jugada a la lista de jugadas validas
+			partida.AddValidsTurns(_matcher.ValidsTurns(partida, Partida<T>.PlayerId(player))); // Se agrega la jugada a la lista de jugadas validas
 			if (!move!.Check) partida.RemoveFromHand(player, move.Token!); // Si no es un pase, se quita de la mano
 			yield return player; // Se devuelve al player
 		}
@@ -81,7 +79,7 @@ public class Judge<T> {
 	/// <param name="player"></param>
 	/// <returns></returns>
 	private static IEnumerable<Move<T>> GenMoves(Partida<T> partida, Player<T> player) {
-		var playerId = partida.PlayerId(player); // Se obtiene el id del player
+		var playerId = Partida<T>.PlayerId(player); // Se obtiene el id del player
 		yield return new Move<T>(playerId); // Se devuelve un pase
 		foreach (var (head, tail) in partida.Hand(player)) {
 			// Se devuelven las jugadas que apuntan a la salida
@@ -111,7 +109,7 @@ public class Judge<T> {
 	/// <param name="player"></param>
 	/// <returns></returns>
 	private IEnumerable<Move<T>> GenSalidas(Partida<T> partida, Player<T> player) {
-		var id = partida.PlayerId(player); // Se obtiene el id del player
+		var id = Partida<T>.PlayerId(player); // Se obtiene el id del player
 		foreach (var move in _matcher.CanMatch(partida, partida.Hand(player).
 				Select(x => new Move<T>(id, false, -1, x.Head, x.Tail)), _scorer.TokenScorer))
 			yield return move; // Se devuelven las salidas validas

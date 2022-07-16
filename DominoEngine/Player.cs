@@ -16,6 +16,7 @@ public abstract class Player<T> {
 		return this;
 	}
 
+    
 	public abstract Move<T> Play(IEnumerable<Move<T>> possibleMoves, Func<int, IEnumerable<int>> passesInfo, List<Move<T>> board, 
 		Func<int, int> inHand, Func<Move<T>, double> scorer, Func<int, int, bool> partner);
 

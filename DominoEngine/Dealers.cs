@@ -1,6 +1,4 @@
-using DominoEngine;
-
-namespace Rules;
+namespace DominoEngine;
 
 public class ClassicDealer<T> : IDealer<T>
 {
@@ -11,6 +9,12 @@ public class ClassicDealer<T> : IDealer<T>
         _pieceForPlayers = piecesForPlayers;
     }
 
+    /// <summary>
+    /// Despues de tomar n fichas, le repartimos m a cada jugador
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="tokens"></param>
+    /// <returns></returns>
     public Dictionary<Player<T>, Hand<T>> Deal(Partida<T> partida, IEnumerable<Token<T>> tokens) {
         Dictionary<Player<T>, Hand<T>> hands = new();
         var r = new Random();
@@ -43,6 +47,12 @@ public class EvenDealer : IDealer<int>
         _pieceForPlayers = piecesForPlayers;
     }
 
+    /// <summary>
+    /// Solo reparte fichas con suma par
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="tokens"></param>
+    /// <returns></returns>
     public Dictionary<Player<int>, Hand<int>> Deal(Partida<int> partida, IEnumerable<Token<int>> tokens) {
         Dictionary<Player<int>, Hand<int>> hands = new();
         var r = new Random();
@@ -75,7 +85,14 @@ public class OddDealer : IDealer<int>
         _numberOfPieces = numberOfPieces;
         _pieceForPlayers = piecesForPlayers;
     }
+    
 
+    /// <summary>
+    /// Se reparten fichas con suma impar
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <param name="tokens"></param>
+    /// <returns></returns>
     public Dictionary<Player<int>, Hand<int>> Deal(Partida<int> partida, IEnumerable<Token<int>> tokens) {
         Dictionary<Player<int>, Hand<int>> hands = new();
         var r = new Random();

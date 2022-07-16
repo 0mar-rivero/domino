@@ -9,48 +9,102 @@ public class Partida<T> {
 		_teams = teams;
 	}
 
-	// Añade movimientos al tablero
+	/// <summary>
+	/// Añade movimientos al tablero
+	/// </summary>
+	/// <param name="move"></param>
 	internal void AddMove(Move<T> move) => _board.Add(move); 
 
-	// Remueve fichas de las manos de los jugadores
+	/// <summary>
+	/// Remueve fichas de las manos de los jugadores
+	/// </summary>
+	/// <param name="player"></param>
+	/// <param name="token"></param>
+	/// <returns></returns>
 	internal bool RemoveFromHand(Player<T> player, Token<T> token) =>
 		Hands.ContainsKey(player) && Hands[player].Remove(token); 
 
-	// Actualiza los turnos validos de la partida, guarda el registro de jugadas validas por turno
+	/// <summary>
+	/// Actualiza los turnos validos de la partida, guarda el registro de jugadas validas por turno
+	/// </summary>
+	/// <param name="validsTurns"></param>
 	internal void AddValidsTurns(IEnumerable<int> validsTurns) => _validsTurns.Add(_validsTurns.Count, validsTurns); 
 
-	// Para un turno devuelve las jugadas validas en ese momento
+	/// <summary>
+	/// Para un turno devuelve las jugadas validas en ese momento
+	/// </summary>
+	/// <param name="turn"></param>
+	/// <returns></returns>
 	internal IEnumerable<int> PassesInfo(int turn) => _validsTurns[turn]; 
 
-	// Devuelve una copia de la mano del player
+	/// <summary>
+	/// Devuelve una copia de la mano del player
+	/// </summary>
+	/// <param name="player"></param>
+	/// <returns></returns>
 	internal IEnumerable<Token<T>> Hand(Player<T> player) => Hands[player].Clone(); 
 
-	internal int PlayerId(Player<T> player) => player.PlayerId; // Devuelve el id del jugador
+	/// <summary>
+	/// Devuelve el id del jugador
+	/// </summary>
+	/// <param name="player"></param>
+	/// <returns></returns>
+	internal static int PlayerId(Player<T> player) => player.PlayerId; 
 
-	// Para un player, devuelve cuantas fichas tiene en las manoaq
+	/// <summary>
+	/// Para un player, devuelve cuantas fichas tiene en las manoaq
+	/// </summary>
+	/// <param name="hash"></param>
+	/// <returns></returns>
 	internal int InHand(int hash) {
 		if (Players().Where(x => x.PlayerId == hash).IsEmpty()) return -1; 
 		return Hands[Players().FirstOrDefault(x => x.PlayerId == hash)!].Count; 
 	} 
 
-	// Devuelve true si dos players estan en el mismo equipo
+	/// <summary>
+	/// Devuelve true si dos players estan en el mismo equipo
+	/// </summary>
+	/// <param name="pId1"></param>
+	/// <param name="pId2"></param>
+	/// <returns></returns>
 	internal bool Partnership(int pId1, int pId2) => TeamOf(pId1).Equals(TeamOf(pId2)); 
 
-	// Devuelve el equipo de un player teniendo su instancia
+	/// <summary>
+	/// Devuelve el equipo de un player teniendo su instancia
+	/// </summary>
+	/// <param name="player"></param>
+	/// <returns></returns>
 	internal Team<T> TeamOf(Player<T> player) => _teams.FirstOrDefault(x => x!.Contains(player), default)!; 
 
-	// Devuelve el equipo de un player teniendo su iD
+	/// <summary>
+	/// Devuelve el equipo de un player teniendo su iD
+	/// </summary>
+	/// <param name="playerId"></param>
+	/// <returns></returns>
 	internal Team<T> TeamOf(int playerId) => TeamOf(Players().FirstOrDefault(x => x.PlayerId == playerId)!); 
 
-	internal Board<T> Board => _board; // Devuelve el tablero de la partida
+	/// <summary>
+	/// Devuelve el tablero de la partida
+	/// </summary>
+	internal Board<T> Board => _board; 
 
-	// Guarda las manos en el diccionario de manos 
+	/// <summary>
+	/// Guarda las manos en el diccionario de manos 
+	/// </summary>
+	/// <param name="player"></param>
+	/// <param name="hand"></param>
 	internal void SetHand(Player<T> player, Hand<T> hand) => Hands.Add(player, hand.Clone()); 
 
-	// Devuelve todos los players involucrados en la partida
+	/// <summary>
+	/// Devuelve todos los players involucrados en la partida
+	/// </summary>
+	/// <returns></returns>
 	internal IEnumerable<Player<T>> Players() => _teams.SelectMany(team => team); 
 
-	// Devuelve los teams involucrados en la partida
+	/// <summary>
+	/// Devuelve los teams involucrados en la partida
+	/// </summary>
+	/// <returns></returns>
 	internal IEnumerable<Team<T>> Teams() => _teams; 
 
 	internal Dictionary<Player<T>, Hand<T>> Hands { get; } = new(); 
