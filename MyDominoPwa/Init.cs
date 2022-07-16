@@ -70,9 +70,12 @@ public class Init {
 		var classicGenerator = new ClassicGenerator();
 		var noDoubleGenerator = new NoDoubleGenerator();
 		var sumPrimeGenerator = new SumPrimeGenerator();
-		GeneratorDic.Add(classicGenerator.GetHashCode(), ("Classic Generator", classicGenerator));
+		var fibonacciGenerator = new FiboGenerator()
+;		GeneratorDic.Add(classicGenerator.GetHashCode(), ("Classic Generator", classicGenerator));
 		GeneratorDic.Add(noDoubleGenerator.GetHashCode(), ("No Double Generator", noDoubleGenerator));
 		GeneratorDic.Add(sumPrimeGenerator.GetHashCode(), ("Sum Prime Generator", sumPrimeGenerator));
+		GeneratorDic.Add(fibonacciGenerator.GetHashCode(), ("Fibonacci Generator", fibonacciGenerator));
+		
 	}
 
 	private void SetScorers() {
