@@ -1,0 +1,132 @@
+﻿<div class="col-6 border-bottom p-2 mt-2">
+	<h3>MatcherSelector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@SelectedId">
+		@foreach (var (id,(name,_)) in MatchersDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<br/>
+	@if (!_adding && !_removing) {
+		<btn class="btn btn-success" @onclick="@(() => _adding = true)" style="border-radius: 50px">Add</btn>
+		<btn class="btn btn-danger" @onclick="@(() => _removing = true)" style="border-radius: 50px">Remove</btn>
+	}
+	@if (_adding) {
+		<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+			<h4>Select adding method:</h4>
+
+			@if (!_joining && !_intersecting && !_reversing) {
+				<btn class="btn btn-primary" @onclick="@(() => _joining = true)" style="border-radius: 50px">Join</btn>
+				<btn class="btn btn-primary" @onclick="@(() => _intersecting = true)" style="border-radius: 50px">Intersect</btn>
+				<btn class="btn btn-primary" @onclick="@(() => _reversing = !_reversing)" style="border-radius: 50px">Reverse</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else {
+				<span>Name: </span>
+				<input type="text" @bind="@_name" style="border-radius: 50px"/>
+			}
+			@if (_joining || _intersecting) {
+				<br/>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in MatchersDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_secondSelectedId">
+					@foreach (var (id,(name,_)) in MatchersDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { if (_joining) Join(); else Intersect(); Reset();})" style="border-radius: 50px">Add</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else if (_reversing) {
+				<br/>
+				<select class="form-select" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in MatchersDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { Inverse(); Reset();})" style="border-radius: 50px">Add</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			}
+		</div>
+	}
+	@if (_removing) {
+		<Remover ResetEvent="@Reset" RulesDictionary="@MatchersDictionary" TItem="@(IMatcher<int>)"></Remover>
+	}
+</div>
+
+@code {
+	private string _name = "New Matcher";
+	private int _firstSelectedId;
+	private int _secondSelectedId;
+	private bool _adding;
+	private bool _removing;
+	private bool _joining;
+	private bool _intersecting;
+	private bool _reversing;
+	private int _selectedId;
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			if (!MatchersDictionary.IsEmpty()) GlobalState.Matcher = MatchersDictionary[SelectedId].matcher;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, IMatcher<int> matcher)> MatchersDictionary { get; set; } = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<IMatcher<TDominoType>> MatcherSetter { get; set; }
+
+
+	///<summary>
+	///Generates a new matcher that is the intersection of the two selected matchers.
+	/// </summary>
+	private void Intersect() {
+		if (!MatchersDictionary.ContainsKey(_firstSelectedId) || !MatchersDictionary.ContainsKey(_secondSelectedId)) return;
+		var newMatcher = MatchersDictionary[_firstSelectedId].matcher.Intersect(MatchersDictionary[_secondSelectedId].matcher);
+		MatchersDictionary.Add(newMatcher.GetHashCode(), (_name, newMatcher));
+		SelectedId = newMatcher.GetHashCode();
+	}
+
+	///<summary>
+	///	Generates a new matcher that is the union of the two selected matchers.
+	/// </summary>
+	private void Join() {
+		if (!MatchersDictionary.ContainsKey(_firstSelectedId) || !MatchersDictionary.ContainsKey(_secondSelectedId)) return;
+		var newMatcher = MatchersDictionary[_firstSelectedId].matcher.Join(MatchersDictionary[_secondSelectedId].matcher);
+		MatchersDictionary.Add(newMatcher.GetHashCode(), (_name, newMatcher));
+		SelectedId = newMatcher.GetHashCode();
+	}
+
+	/// <summary>
+	/// Generates a new matcher that is the inverse of the selected matcher.
+	/// </summary>
+	private void Inverse() {
+		if (!MatchersDictionary.ContainsKey(_firstSelectedId)) return;
+		var newMatcher = MatchersDictionary[_firstSelectedId].matcher.Inverse();
+		MatchersDictionary.Add(newMatcher.GetHashCode(), (_name, newMatcher));
+		SelectedId = newMatcher.GetHashCode();
+	}
+
+	///<summary>
+	/// Resets all the variables to their initial values.
+	/// </summary>>
+	private void Reset() {
+		_adding = false;
+		_removing = false;
+		_joining = false;
+		_intersecting = false;
+		_reversing = false;
+		_firstSelectedId = 0;
+		_secondSelectedId = 0;
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		SelectedId = MatchersDictionary.Keys.FirstOrDefault();
+		if (!MatchersDictionary.IsEmpty()) GlobalState.Matcher = MatchersDictionary[SelectedId].matcher;
+	}
+
+}

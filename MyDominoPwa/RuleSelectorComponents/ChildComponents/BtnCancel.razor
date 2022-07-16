@@ -1,0 +1,6 @@
+﻿<btn class="btn btn-danger" @onclick="@(CancelEvent)" style="border-radius: 50px; background-color: red">Cancel</btn>
+
+@code {
+	[Parameter]
+	public EventCallback CancelEvent { get; set; }
+}

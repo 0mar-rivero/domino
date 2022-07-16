@@ -1,0 +1,81 @@
+﻿<div class="col-6 border-bottom p-2 mt-2">
+	<h3>ScorerSelector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@SelectedId">
+		@foreach (var (id,(name,_)) in ScorersDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<br/>
+	@if (!_adding && !_removing) {
+		<btn class="btn btn-success" @onclick="@(() => _adding = true)" style="border-radius: 50px">Add</btn>
+		<btn class="btn btn-danger" @onclick="@(() => _removing = true)" style="border-radius: 50px">Remove</btn>
+	}
+	@if (_adding) {
+		<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+			<h4>Select adding method:</h4>
+
+			@if (!_reversing) {
+				<btn class="btn btn-primary" @onclick="@(() => _reversing = !_reversing)" style="border-radius: 50px">Reverse</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else {
+				<span>Name: </span>
+				<input type="text" @bind="@_name" style="border-radius: 50px">
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in ScorersDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { Inverse(); Reset();})" style="border-radius: 50px">Add</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			}
+		</div>
+	}
+	@if (_removing) {
+		<Remover ResetEvent="@Reset" RulesDictionary="@ScorersDictionary" TItem="@(IScorer<int>)"></Remover>
+	}
+</div>
+
+@code {
+	private string _name = "New Scorer";
+	private int _firstSelectedId;
+	private bool _adding;
+	private bool _removing;
+	private bool _reversing;
+	private int _selectedId;
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			if (!ScorersDictionary.IsEmpty()) GlobalState.Scorer = ScorersDictionary[SelectedId].scorer;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, IScorer<int> scorer)> ScorersDictionary { get; set; } = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<IScorer<TDominoType>> ScorerSetter { get; set; }
+
+	private void Inverse() {
+		var newScorer = ScorersDictionary[_firstSelectedId].Item2.Inverse();
+		ScorersDictionary[newScorer.GetHashCode()] = (_name, newScorer);
+		SelectedId = newScorer.GetHashCode();
+	}
+
+	private void Reset() {
+		_name = "New Scorer";
+		_firstSelectedId = 0;
+		_adding = false;
+		_removing = false;
+		_reversing = false;
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		SelectedId = ScorersDictionary.Keys.FirstOrDefault();
+		if (!ScorersDictionary.IsEmpty())
+			GlobalState.Scorer = ScorersDictionary[SelectedId].scorer;
+	}
+
+}

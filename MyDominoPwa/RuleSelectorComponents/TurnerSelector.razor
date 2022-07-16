@@ -1,0 +1,67 @@
+﻿@using System.Text.RegularExpressions
+@using System.Reflection
+
+<div class="col-6 border-bottom p-2 mt-2">
+	<h3>TurnerSelector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@(SelectedId)">
+		@foreach (var (id,(name,_)) in TurnerDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	@if (!TurnerDictionary.IsEmpty() && HasIntParam(TurnerDictionary[SelectedId].turner)) {
+		<btn class="btn btn-success mt-2 mb-2 align-self-md-center" @onclick="@(AddTurner)" style="border-radius: 50px">CreateNew</btn>
+		<input class="mt-2 mb-2 align-self-md-center" type="number" style="border-radius: 50px; width: min(max(10%, 50px),100%)" @bind="@_additionalParamValue">
+		<span>@_additionalParamName.Space()</span>
+	}
+</div>
+
+@code {
+	private string _additionalParamName = "";
+	private int _additionalParamValue;
+
+	private ConstructorInfo? _constructorInfo;
+	private int _selectedId;
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			AdditionalParamValueUpdate();
+			if (!TurnerDictionary.IsEmpty()) GlobalState.Turner = TurnerDictionary[SelectedId].turner;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name ,ITurner<int> turner)> TurnerDictionary { get; set; } = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<ITurner<TDominoType>> TurnerSetter { get; set; }
+
+
+	bool HasIntParam(ITurner<int>? turner) {
+		_constructorInfo = turner?.GetType().GetConstructors().FirstOrDefault(c => c.GetParameters().Length is 1 && c.GetParameters()[0].ParameterType == typeof(int));
+
+		if (_constructorInfo == default) return false;
+		_additionalParamName = _constructorInfo.GetParameters()[0].Name ?? "NotFound";
+		return true;
+	}
+
+	void AdditionalParamValueUpdate() {
+		if (TurnerDictionary.Count is 0) return;
+		var match = new Regex(@"\((\d+)\)$").Match(TurnerDictionary[SelectedId].name);
+		_additionalParamValue = match.Success ? int.Parse(match.Groups[1].Value) : 0;
+	}
+
+	void AddTurner() {
+		object?[] args = { _additionalParamValue };
+		var turner = (ITurner<int>)_constructorInfo?.Invoke(args)!;
+		TurnerDictionary.Add(turner.GetHashCode(), (new Regex(@"\((\d+)\)$").Replace(TurnerDictionary[SelectedId].name, $"({_additionalParamValue})"), turner));
+		SelectedId = turner.GetHashCode();
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		if(!TurnerDictionary.IsEmpty()) SelectedId = TurnerDictionary.First().Key;
+	}
+
+}

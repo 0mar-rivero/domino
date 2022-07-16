@@ -1,0 +1,53 @@
+﻿@page "/"
+@using System.Runtime
+@inject NavigationManager NavigationManager
+
+<button class="nav-link btn btn-primary" @onclick="@GlobalSetter" href="GameDisplay" style="border-radius: 50px">Play</button>
+<div class="border-bottom mt-4">
+	<PlayerSelectorMenu/>
+</div>
+<div class="border-bottom mt-4">
+	<RuleSelectorMenu></RuleSelectorMenu>
+</div>
+<div class="border-bottom mt-4">
+	<TournamentSelectorMenu></TournamentSelectorMenu>
+</div>
+
+
+@code {
+	List<Team<int>> _teams = new();
+	Judge<int> _judge = new ClassicJudge();
+	Tournament<int> _tournament = new DirichletTournament<int>(3);
+
+	private void SetTeams(List<Team<int>> teams) => _teams = teams;
+	private void SetJudge(Judge<int> judge) => _judge = judge;
+	private void SetTournament(Tournament<int> tournament) => _tournament = tournament;
+
+	// private void GlobalSetter() {
+	// 	if (_teams.IsEmpty()) return;
+	// 	if(_teams.Any(t=>t.IsEmpty())) return;
+	// 	if (_judge is null) return;
+	// 	if (_tournament is null) return;
+	// 	_tournament.SetJudge(_judge);
+	// 	_tournament.SetTeams(_teams);
+	// 	GlobalState.Visible = true;
+	// 	GlobalState.GLobalTournament = _tournament;
+	// 	NavigationManager.NavigateTo("Game");
+	// }
+
+	private void GlobalSetter() {
+		if (GlobalState.Dealer is null || GlobalState.Finisher is null
+		    || GlobalState.Generator is null || GlobalState.Matcher is null
+		    || GlobalState.Scorer is null || GlobalState.Turner is null) return;
+		if (GlobalState.GLobalTournament is null) return;
+		if (GlobalState.Teams is null) return;
+		GlobalState.Teams = GlobalState.Teams.Where(t => t.Value.Count != 0).ToDictionary(t => t.Key, t => t.Value);
+		if (GlobalState.Teams.Count <= 1) return;
+		GlobalState.Judge = new Judge<int>(GlobalState.Generator, GlobalState.Dealer, GlobalState.Turner, GlobalState.Matcher, GlobalState.Scorer, GlobalState.Finisher);
+		GlobalState.GLobalTournament.SetJudge(GlobalState.Judge);
+		GlobalState.GLobalTournament.SetTeams(GlobalState.Teams.Values.ToList());
+		GlobalState.Visible = true;
+		NavigationManager.NavigateTo("Game");
+	}
+
+}

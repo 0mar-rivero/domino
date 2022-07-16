@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = MyDominoPwa
+build_property.RootNamespace = MyDominoPwa
+build_property.ProjectDir = D:\Escuela\Programación\domino\MyDominoPwa\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Escuela\Programación\domino\MyDominoPwa
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Board/Board.razor]
+build_metadata.AdditionalFiles.TargetPath = Qm9hcmRcQm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/DominoModel/DominoModelComponents/Row.razor]
+build_metadata.AdditionalFiles.TargetPath = RG9taW5vTW9kZWxcRG9taW5vTW9kZWxDb21wb25lbnRzXFJvdy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/DominoModel/DominoModelComponents/Row2.razor]
+build_metadata.AdditionalFiles.TargetPath = RG9taW5vTW9kZWxcRG9taW5vTW9kZWxDb21wb25lbnRzXFJvdzIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/GameDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZURpc3BsYXkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/MainMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/PlayerSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyU2VsZWN0b3JNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/RuleSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUnVsZVNlbGVjdG9yTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/TournamentSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG91cm5hbWVudFNlbGVjdG9yTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/PlayerSelectorComponents/TeamBox.razor]
+build_metadata.AdditionalFiles.TargetPath = UGxheWVyU2VsZWN0b3JDb21wb25lbnRzXFRlYW1Cb3gucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/ChildComponents/BtnCancel.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xDaGlsZENvbXBvbmVudHNcQnRuQ2FuY2VsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/ChildComponents/Remover.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xDaGlsZENvbXBvbmVudHNcUmVtb3Zlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/DealerSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xEZWFsZXJTZWxlY3Rvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/FinisherSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xGaW5pc2hlclNlbGVjdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/GeneratorSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xHZW5lcmF0b3JTZWxlY3Rvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/MatcherSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xNYXRjaGVyU2VsZWN0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/ScorerSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xTY29yZXJTZWxlY3Rvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/RuleSelectorComponents/TurnerSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UnVsZVNlbGVjdG9yQ29tcG9uZW50c1xUdXJuZXJTZWxlY3Rvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/TournamentSelectorComponents/TournamentSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = VG91cm5hbWVudFNlbGVjdG9yQ29tcG9uZW50c1xUb3VybmFtZW50U2VsZWN0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Escuela/Programación/domino/MyDominoPwa/DominoModel/DominoModelComponents/Token.razor]
+build_metadata.AdditionalFiles.TargetPath = RG9taW5vTW9kZWxcRG9taW5vTW9kZWxDb21wb25lbnRzXFRva2VuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-e99w8xw08p
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-t3tsyokbip
+
+[D:/Escuela/Programación/domino/MyDominoPwa/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qqlcpevhud

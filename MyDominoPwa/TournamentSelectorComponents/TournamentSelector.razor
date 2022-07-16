@@ -1,0 +1,138 @@
+﻿@using System.Text.RegularExpressions
+@using System.Reflection
+
+<div class="col-6 border-bottom p-2 mt-2">
+	<h3>Tournament Selector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@SelectedId">
+		@foreach (var (id,(name,_)) in TournamentDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<br/>
+	@if (!_adding && !_removing) {
+		@if (HasIntParam(TournamentDictionary[SelectedId].tournament)) {
+			<btn class="btn btn-success mt-2 mb-2 align-self-md-center" @onclick="@(AddTournament)" style="border-radius: 50px">CreateNew</btn>
+			<input class="mt-2 mb-2 align-self-md-center" type="number" style="border-radius: 50px; width: min(max(10%, 50px),100%)" @bind="@_additionalParamValue">
+			<span>@_additionalParamName.Space()</span>
+			<br/>
+		}
+		<btn class="btn btn-success" @onclick="@(() => _adding = true)" style="border-radius: 50px">Add</btn>
+		<btn class="btn btn-danger" @onclick="@(() => _removing = true)" style="border-radius: 50px">Remove</btn>
+	}
+	@if (_adding) {
+		<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+			<h4>Select adding method:</h4>
+
+			@if (!_composing) {
+				<btn class="btn btn-primary" @onclick="@(() => _composing = true)" style="border-radius: 50px">Compose</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else {
+				<span>Name: </span>
+				<input type="text" @bind="@_name" style="border-radius: 50px"/>
+			}
+			@if (_composing) {
+				<br/>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in TournamentDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_secondSelectedId">
+					@foreach (var (id,(name,_)) in TournamentDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { Compose(); Reset();})" style="border-radius: 50px">Compose</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			}
+		</div>
+	}
+	@if (_removing) {
+		<Remover ResetEvent="@Reset" RulesDictionary="@TournamentDictionary" TItem="@(Tournament<int>)"></Remover>
+	}
+
+</div>
+
+@code {
+	private string _name = "New Tournament";
+	private int _firstSelectedId;
+	private int _secondSelectedId;
+	private bool _adding;
+	private bool _removing;
+	private bool _composing;
+	private int _additionalParamValue;
+	private int _selectedId;
+	private ConstructorInfo? _constructorInfo;
+	private string _additionalParamName = "";
+	private bool _additionalParam;
+
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			AdditionalParamValueUpdate();
+			if (!TournamentDictionary.IsEmpty()) GlobalState.GLobalTournament = TournamentDictionary[SelectedId].tournament;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, Tournament<int> tournament)> TournamentDictionary { get; set; } = new();
+	
+	// [Parameter, EditorRequired]
+	// public EventCallback<Tournament<TDominoType>> TournamentSetter { get; set; }
+
+
+	///<summary>
+	///	Generates a new matcher that is the composition of the selected tournaments.
+	/// </summary>
+	private void Compose() {
+		var newTournament = TournamentDictionary[_firstSelectedId].tournament.Compose(TournamentDictionary[_secondSelectedId].tournament);
+		TournamentDictionary.Add(newTournament.GetHashCode(), (_name, newTournament));
+	}
+
+	///<summary>
+	/// Resets all the variables to their initial values.
+	/// </summary>>
+	private void Reset() {
+		_adding = false;
+		_removing = false;
+		_composing = false;
+		_firstSelectedId = 0;
+		_secondSelectedId = 0;
+		SelectedId = TournamentDictionary.Keys.FirstOrDefault();
+	}
+
+	bool HasIntParam(Tournament<int>? turner) {
+		_constructorInfo = turner?.GetType().GetConstructors().FirstOrDefault(c => c.GetParameters().Length is 1 && c.GetParameters()[0].ParameterType == typeof(int));
+
+		if (_constructorInfo != default) {
+			_additionalParam = true;
+			_additionalParamName = _constructorInfo.GetParameters()[0].Name ?? "NotFound";
+		} else {
+			_additionalParam = false;
+		}
+		return _additionalParam;
+	}
+
+	void AdditionalParamValueUpdate() {
+		if (TournamentDictionary.Count is 0) return;
+		var match = new Regex(@"\((\d+)\)$").Match(TournamentDictionary[SelectedId].name);
+		_additionalParamValue = match.Success ? int.Parse(match.Groups[1].Value) : 0;
+	}
+
+	void AddTournament() {
+		object?[] args = { _additionalParamValue };
+		var tournament = (Tournament<int>)_constructorInfo?.Invoke(args)!;
+		TournamentDictionary.Add(tournament.GetHashCode(), (new Regex(@"\((\d+)\)$").Replace(TournamentDictionary[SelectedId].name, $"({_additionalParamValue})"), tournament));
+		SelectedId = tournament.GetHashCode();
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		Reset();
+		if (!TournamentDictionary.IsEmpty())
+			GlobalState.GLobalTournament = TournamentDictionary[SelectedId].tournament;
+	}
+
+}

@@ -1,0 +1,29 @@
+﻿@typeparam TItem
+
+<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+
+	<h4>Selecting rule to remove:</h4>
+	<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(12.5%, 200px), 100%)" @bind="_firstSelectedId">
+		@foreach (var (id,(name,_)) in RulesDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<btn class="btn btn-danger" @onclick="@Remove" style="border-radius: 50px;">Remove</btn>
+	<BtnCancel CancelEvent="@ResetEvent"></BtnCancel>
+</div>
+
+@code {
+
+	int _firstSelectedId;
+	
+	[Parameter, EditorRequired]
+	public EventCallback ResetEvent { get; set; }
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, TItem rule)> RulesDictionary { get; set; } = new();
+
+	private void Remove() {
+		RulesDictionary.Remove(_firstSelectedId);
+		ResetEvent.InvokeAsync();
+	}
+}

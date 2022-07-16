@@ -1,0 +1,152 @@
+﻿@using System.Text.RegularExpressions
+@using System.Reflection
+
+<div class="col-6 border-bottom p-2 mt-2">
+	<h3>Finisher Selector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@SelectedId">
+		@foreach (var (id,(name,_)) in FinisherDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<br/>
+	@if (!_adding && !_removing) {
+		@if (HasIntParam(FinisherDictionary[SelectedId].finisher)) {
+			<btn class="btn btn-success mt-2 mb-2 align-self-md-center" @onclick="@(AddFinisher)" style="border-radius: 50px">CreateNew</btn>
+			<input class="mt-2 mb-2 align-self-md-center" type="number" style="border-radius: 50px; width: min(max(10%, 50px),100%)" @bind="@_additionalParamValue">
+			<span>@_additionalParamName.Space()</span>
+			<br/>
+		}
+		<btn class="btn btn-success" @onclick="@(() => _adding = true)" style="border-radius: 50px">Add</btn>
+		<btn class="btn btn-danger" @onclick="@(() => _removing = true)" style="border-radius: 50px">Remove</btn>
+	}
+	@if (_adding) {
+		<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+			<h4>Select adding method:</h4>
+
+			@if (!_joining && !_intersecting) {
+				<btn class="btn btn-primary" @onclick="@(() => _joining = true)" style="border-radius: 50px">Join</btn>
+				<btn class="btn btn-primary" @onclick="@(() => _intersecting = true)" style="border-radius: 50px">Intersect</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else {
+				<span>Name: </span>
+				<input type="text" @bind="@_name" style="border-radius: 50px"/>
+			}
+			@if (_joining || _intersecting) {
+				<br/>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in FinisherDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_secondSelectedId">
+					@foreach (var (id,(name,_)) in FinisherDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { if (_joining) Join(); else Intersect(); Reset();})" style="border-radius: 50px">Add</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			}
+		</div>
+	}
+	@if (_removing) {
+		<Remover ResetEvent="@Reset" RulesDictionary="@FinisherDictionary" TItem="@(IFinisher<int>)"></Remover>
+	}
+
+</div>
+
+@code {
+	private string _name = "New Finisher";
+	private int _firstSelectedId;
+	private int _secondSelectedId;
+	private bool _adding;
+	private bool _removing;
+	private bool _joining;
+	private bool _intersecting;
+	private int _additionalParamValue;
+	private int _selectedId;
+	private ConstructorInfo? _constructorInfo;
+	private string _additionalParamName = "";
+	private bool _additionalParam;
+
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			AdditionalParamValueUpdate();
+			if (!FinisherDictionary.IsEmpty()) GlobalState.Finisher = FinisherDictionary[SelectedId].finisher;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, IFinisher<int> finisher)> FinisherDictionary { get; set; } = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<IFinisher<int>> FinisherSetter { get; set; }
+
+	///<summary>
+	///Generates a new matcher that is the intersection of the two selected finishers.
+	/// </summary>
+	private void Intersect() {
+		if (!FinisherDictionary.ContainsKey(_firstSelectedId) || !FinisherDictionary.ContainsKey(_secondSelectedId)) return;
+		var newFinisher = FinisherDictionary[_firstSelectedId].finisher.Intersect(FinisherDictionary[_secondSelectedId].finisher);
+		FinisherDictionary.Add(newFinisher.GetHashCode(), (_name, newFinisher));
+		SelectedId = newFinisher.GetHashCode();
+	}
+
+	///<summary>
+	///	Generates a new matcher that is the union of the two selected finishers.
+	/// </summary>
+	private void Join() {
+		if (!FinisherDictionary.ContainsKey(_firstSelectedId) || !FinisherDictionary.ContainsKey(_secondSelectedId)) return;
+
+		var newFinisher = FinisherDictionary[_firstSelectedId].finisher.Join(FinisherDictionary[_secondSelectedId].finisher);
+		FinisherDictionary.Add(newFinisher.GetHashCode(), (_name, newFinisher));
+		SelectedId = newFinisher.GetHashCode();
+	}
+
+	///<summary>
+	/// Resets all the variables to their initial values.
+	/// </summary>>
+	private void Reset() {
+		_adding = false;
+		_removing = false;
+		_joining = false;
+		_intersecting = false;
+		_firstSelectedId = 0;
+		_secondSelectedId = 0;
+	}
+
+	bool HasIntParam(IFinisher<int>? turner) {
+		_constructorInfo = turner?.GetType().GetConstructors().FirstOrDefault(c => c.GetParameters().Length is 1 && c.GetParameters()[0].ParameterType == typeof(int));
+
+		if (_constructorInfo != default) {
+			_additionalParam = true;
+			_additionalParamName = _constructorInfo.GetParameters()[0].Name ?? "NotFound";
+		} else {
+			_additionalParam = false;
+		}
+		return _additionalParam;
+	}
+
+	void AdditionalParamValueUpdate() {
+		if (FinisherDictionary.Count is 0) return;
+		var match = new Regex(@"\((\d+)\)$").Match(FinisherDictionary[SelectedId].name);
+		_additionalParamValue = match.Success ? int.Parse(match.Groups[1].Value) : 0;
+	}
+
+	void AddFinisher() {
+		object?[] args = { _additionalParamValue };
+		var finisher = (IFinisher<int>)_constructorInfo?.Invoke(args)!;
+		FinisherDictionary.Add(finisher.GetHashCode(), (new Regex(@"\((\d+)\)$").Replace(FinisherDictionary[SelectedId].name, $"({_additionalParamValue})"), finisher));
+		SelectedId = finisher.GetHashCode();
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		SelectedId = FinisherDictionary.Keys.FirstOrDefault();
+		if (!FinisherDictionary.IsEmpty())
+			GlobalState.Finisher = FinisherDictionary[SelectedId].finisher;
+	}
+
+}

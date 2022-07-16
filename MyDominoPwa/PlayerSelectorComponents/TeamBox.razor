@@ -1,0 +1,94 @@
+﻿@using System.Diagnostics.CodeAnalysis
+@using Players
+
+<div class="col-6 p-2 border" style="background-color: @(_isSelected ? "dodgerblue" : "azure")" @onclick="@(_ => { _isSelected = !_isSelected; InvokeAsync(MySelected);})">
+	<h3>Team @Number</h3>
+	<ul class="list-group-horizontal">
+		@foreach (var (player, check) in _team) {
+			<li class="list-group-item border-bottom align-content-md-center" style="background-color: transparent; border-color: transparent; border-bottom: solid gray" @key="@player">
+				<input type="checkbox" value="@check" @onchange="@(() => _team[player] = !_team[player])"/>
+				@player.ToString()
+			</li>
+		}
+	</ul>
+	<input class="mt-2 mb-2 align-self-baseline" type="text" @bind="@_newPlayerName" style="border-radius: 50px; height: 35px" placeholder="New Player"/>
+	<select class="mt-2 mb-2 align-self-baseline" style="width: min(max(25%, 200px), 100%); border-radius: 50px; height: 35px" @bind="@_newPlayerType">
+		<option value="" selected hidden>Player Type</option>
+		@foreach (var (type,_) in Players) {
+			<option value="@type">@type</option>
+		}
+	</select>
+	<btn class="btn btn-success mt-2 mb-2 align-self-baseline" @onclick="@AddPlayer" style="border-radius: 50px; height: 35px">Add</btn>
+	<btn class="btn btn-danger mt-2 mb-2 align-self-baseline" @onclick="@RemovePlayer" style="border-radius: 50px; height: 35px">Del Selected</btn>
+
+</div>
+
+@code {
+	private string _newPlayerName = "";
+	private string _newPlayerType = "";
+	private bool _isSelected;
+	private Dictionary<Player<int>, bool> _team = new();
+
+
+	[Parameter, EditorRequired]
+	public Dictionary<string, Player<int>> Players { get; set; }
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<Team<TDominoType>> TeamCreator { get; set; }
+
+	[Parameter, EditorRequired]
+	public int Number { get; set; }
+
+	[Parameter, EditorRequired]
+	public EventCallback<bool> Selected { get; set; }
+
+	private void MyTeamCreator() {
+		GlobalState.Teams[Number] = new Team<int>(_team.Keys.ToList());
+	}
+
+	private async Task MySelected() => await Selected.InvokeAsync(_isSelected);
+
+	private void AddPlayer() {
+		if (_newPlayerType is "" || _newPlayerName is "") return;
+		var ctorInfo = Players[_newPlayerType].GetType().GetConstructor(new[] { typeof(string) });
+		var player = (Player<int>)ctorInfo!.Invoke(new object[] { _newPlayerName });
+		_team[player] = false;
+		Reset();
+	}
+
+	private void Reset() {
+		_newPlayerName = "";
+		_newPlayerType = "";
+		MyTeamCreator();
+	}
+
+	private void RemovePlayer() {
+		var playerToRemoveList = _team.Where(t => t.Value).Select(t => t.Key).ToList();
+		foreach (var player in playerToRemoveList) {
+			_team.Remove(player);
+		}
+		Reset();
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitializedAsync();
+		switch (Number) {
+			case 0: {
+				var alex = new SmartPlayer<int>("Alex");
+				var juanky = new SupportPlayer<int>("Juanky");
+				_team[alex] = false;
+				_team[juanky] = false;
+				break;
+			}
+			case 1: {
+				var omar = new DisablerPlayer<int>("Omar");
+				var anthuan = new CarrierPlayer<int>("Anthuan");
+				_team[omar] = false;
+				_team[anthuan] = false;
+				break;
+			}
+		}
+		Reset();
+	}
+
+}

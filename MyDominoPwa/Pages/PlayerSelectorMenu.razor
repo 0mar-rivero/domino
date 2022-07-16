@@ -1,0 +1,46 @@
+﻿@using System.Reflection
+@using Players
+@inject Init Init
+<h1>Players Selector</h1>
+<div class="p-2 m-2 row container">
+	@foreach (var (index,_) in _teams) {
+		<TeamBox Players="@Init.PlayerTypesDic" Number="index" Selected="@(selected => _teamIsSelected[index] = selected)"></TeamBox>
+	}
+</div>
+<btn class="btn btn-success mb-2 mt-2 ms-2 align-self-baseline" @onclick="@(TeamAdder)" style="border-radius: 50px; height: 35px">Add new team</btn>
+<btn class="btn btn-danger mb-2 mt-2 align-self-baseline" @onclick="@(TeamRemover)" style="border-radius: 50px; height: 35px">Remove Selected Teams</btn>
+
+@code {
+	private int _counter;
+	private Dictionary<int, Team<int>> _teams = new();
+	private readonly Dictionary<int, bool> _teamIsSelected = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<List<Team<int>>> SetTeams { get; set; }
+
+
+	// private async Task MyTeamSetter() => await SetTeams.InvokeAsync(_teams.Where(t => !t.Value.IsEmpty()).Select(t => t.Value).ToList());
+
+	private void TeamAdder() {
+		_teams.Add(_counter, new Team<int>(new List<Player<int>>()));
+		_teamIsSelected.Add(_counter, false);
+		_counter++;
+		// InvokeAsync(MyTeamSetter);
+	}
+
+	private void TeamRemover() {
+		var a = _teamIsSelected.Where(x => x.Value).Select(x => x.Key).ToList();
+		foreach (var i in a) {
+			_teams.Remove(i);
+			_teamIsSelected.Remove(i);
+			GlobalState.Teams.Remove(i);
+		}
+	// InvokeAsync(MyTeamSetter);
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		TeamAdder();
+	}
+
+}

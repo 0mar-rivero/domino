@@ -1,0 +1,109 @@
+﻿<div class="col-6 border-bottom p-2 mt-2">
+	<h3>GeneratorSelector</h3>
+	<select class="form-select" style="width: min(max(25%, 700px), 100%); border-radius: 50px" @bind="@SelectedId">
+		@foreach (var (id,(name,_)) in GeneratorDictionary) {
+			<option value="@id">@name</option>
+		}
+	</select>
+	<br/>
+	@if (!_adding && !_removing) {
+		<btn class="btn btn-success" @onclick="@(() => _adding = true)" style="border-radius: 50px">Add</btn>
+		<btn class="btn btn-danger" @onclick="@(() => _removing = true)" style="border-radius: 50px">Remove</btn>
+	}
+	@if (_adding) {
+		<div class="p-1 mt-1" style="width: min(max(50%, 500px), 100%)">
+			<h4>Select adding method:</h4>
+
+			@if (!_joining && !_intersecting) {
+				<btn class="btn btn-primary" @onclick="@(() => _joining = true)" style="border-radius: 50px">Join</btn>
+				<btn class="btn btn-primary" @onclick="@(() => _intersecting = true)" style="border-radius: 50px">Intersect</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			} else {
+				<span>Name: </span>
+				<input type="text" @bind="@_name" style="border-radius: 50px"/>
+			}
+			@if (_joining || _intersecting) {
+				<br/>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_firstSelectedId">
+					@foreach (var (id,(name,_)) in GeneratorDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<select class="form-select mt-2 mb-2" style="border-radius: 50px; width: min(max(25%, 200px), 100%)" @bind="_secondSelectedId">
+					@foreach (var (id,(name,_)) in GeneratorDictionary) {
+						<option value="@id">@name</option>
+					}
+				</select>
+				<btn class="btn btn-success" @onclick="@(() => { if (_joining) Join(); else Intersect(); Reset();})" style="border-radius: 50px">Add</btn>
+				<BtnCancel CancelEvent="@Reset"></BtnCancel>
+			}
+		</div>
+	}
+	@if (_removing) {
+		<Remover ResetEvent="@Reset" RulesDictionary="@GeneratorDictionary" TItem="@(IGenerator<int>)"></Remover>
+	}
+</div>
+
+@code {
+	private string _name = "New Generator";
+	private int _firstSelectedId;
+	private int _secondSelectedId;
+	private bool _adding;
+	private bool _removing;
+	private bool _joining;
+	private bool _intersecting;
+	private int _selectedId;
+
+	private int SelectedId {
+		get => _selectedId;
+		set {
+			_selectedId = value;
+			if (!GeneratorDictionary.IsEmpty()) GlobalState.Generator = GeneratorDictionary[SelectedId].generator;
+		}
+	}
+
+	[Parameter, EditorRequired]
+	public Dictionary<int, (string name, IGenerator<int> generator)> GeneratorDictionary { get; set; } = new();
+
+	// [Parameter, EditorRequired]
+	// public EventCallback<IGenerator<TDominoType>> GeneratorSetter { get; set; }
+
+	///<summary>
+	///Generates a new matcher that is the intersection of the two selected generators.
+	/// </summary>
+	private void Intersect() {
+		if (!GeneratorDictionary.ContainsKey(_firstSelectedId) || !GeneratorDictionary.ContainsKey(_secondSelectedId)) return;
+		var newGenerator = GeneratorDictionary[_firstSelectedId].generator.Intersect(GeneratorDictionary[_secondSelectedId].generator);
+		GeneratorDictionary.Add(newGenerator.GetHashCode(), (_name, newGenerator));
+		_selectedId = newGenerator.GetHashCode();
+	}
+
+	///<summary>
+	///	Generates a new matcher that is the union of the two selected generators.
+	/// </summary>
+	private void Join() {
+		if (!GeneratorDictionary.ContainsKey(_firstSelectedId) || !GeneratorDictionary.ContainsKey(_secondSelectedId)) return;
+		var newGenerator = GeneratorDictionary[_firstSelectedId].generator.Join(GeneratorDictionary[_secondSelectedId].generator);
+		GeneratorDictionary.Add(newGenerator.GetHashCode(), (_name, newGenerator));
+		_selectedId = newGenerator.GetHashCode();
+	}
+
+	///<summary>
+	/// Resets all the variables to their initial values.
+	/// </summary>>
+	private void Reset() {
+		_adding = false;
+		_removing = false;
+		_joining = false;
+		_intersecting = false;
+		_firstSelectedId = 0;
+		_secondSelectedId = 0;
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		SelectedId = GeneratorDictionary.Keys.FirstOrDefault();
+		if (!GeneratorDictionary.IsEmpty()) GlobalState.Generator = GeneratorDictionary[SelectedId].generator;
+	}
+
+}

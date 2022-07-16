@@ -1,0 +1,60 @@
+﻿@inject Init Init
+
+<h1>Rules Selector</h1>
+<div class="row container pt-2 mt-2">
+	<MatcherSelector MatchersDictionary="@(Init.MatchersDic)"></MatcherSelector>
+	<ScorerSelector ScorersDictionary="@(Init.ScorerDic)"></ScorerSelector>
+	<FinisherSelector FinisherDictionary="@(Init.FinishersDic)"></FinisherSelector>
+	<GeneratorSelector GeneratorDictionary="@(Init.GeneratorDic)"></GeneratorSelector>
+	<DealerSelector DealerDictionary="@(Init.DealersDic)"></DealerSelector>
+	<TurnerSelector TurnerDictionary="@(Init.TurnerDic)"></TurnerSelector>
+</div>
+
+@code {
+
+	[Parameter, EditorRequired]
+	public EventCallback<Judge<int>> SetJudge { get; set; }
+
+	private IMatcher<int>? _matcher;
+	private IScorer<int>? _scorer;
+	private IFinisher<int>? _finisher;
+	private IGenerator<int>? _generator;
+	private IDealer<int>? _dealer;
+	private ITurner<int>? _turner;
+
+	private async Task MySetJudge() {
+		if (_generator is null || _dealer is null || _turner is null || _matcher is null || _scorer is null || _finisher is null) return;
+		await SetJudge.InvokeAsync(new Judge<int>(_generator, _dealer, _turner, _matcher, _scorer, _finisher));
+	}
+
+	private void SetMatcher(IMatcher<int> matcher) {
+		_matcher = matcher;
+		InvokeAsync(MySetJudge);
+	}
+
+	private void SetScorer(IScorer<int> scorer) {
+		_scorer = scorer;
+		InvokeAsync(MySetJudge);
+	}
+
+	private void SetFinisher(IFinisher<int> finisher) {
+		_finisher = finisher;
+		InvokeAsync(MySetJudge);
+	}
+
+	private void SetGenerator(IGenerator<int> generator) {
+		_generator = generator;
+		InvokeAsync(MySetJudge);
+	}
+
+	private void SetDealer(IDealer<int> dealer) {
+		_dealer = dealer;
+		InvokeAsync(MySetJudge);
+	}
+
+	private void SetTurner(ITurner<int> turner) {
+		_turner = turner;
+		InvokeAsync(MySetJudge);
+	}
+
+}

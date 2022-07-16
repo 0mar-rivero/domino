@@ -1,0 +1,10 @@
+﻿@using MyDominoPwa.TournamentSelectorComponents
+@inject Init Init
+
+<h1>Tournament Selector</h1>
+<TournamentSelector TournamentDictionary="@(Init.BaseTournamentsDic)"></TournamentSelector>
+
+@code {
+	// [Parameter, EditorRequired]
+	// public EventCallback<Tournament<int>> SetTournament { get; set; }
+}
