@@ -1,7 +1,7 @@
 ﻿namespace DominoEngine;
 
 /// <summary>
-/// Interfaz que encapsula la funcionalidad de devolver ienumerable inifinto de tokens
+/// Interfaz que encapsula la funcionalidad de devolver un IEnumerable<Token<T>> inifinto
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface IGenerator<T> {
@@ -17,7 +17,7 @@ public interface IDealer<T> {
 }
 
 /// <summary>
-/// // Interfaz que encapsula la funcionalidade de matchear dos fichas em algun momentp del juego
+/// // Interfaz que encapsula la funcionalidade de matchear dos fichas em algun momento del juego
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface IMatcher<T> {
@@ -30,7 +30,7 @@ public interface IMatcher<T> {
 }
 
 /// <summary>
-/// Interfaz que se encarga de iterar por los jugadores en algun orden
+/// Interfaz que se encarga de iterar por los jugadores y devolverlos en algun orden
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface ITurner<T> {
@@ -46,7 +46,7 @@ public interface IFinisher<T> {
 }
 
 /// <summary>
-/// Define la forma en la que se putuam 
+/// Define la forma en la que se puntua una partida, y quien es el ganador
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface IScorer<T> {

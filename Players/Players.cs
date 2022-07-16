@@ -2,7 +2,6 @@
 
 namespace Players;
 
-
 public class RandomPlayer<T> : Player<T>
 {
     public RandomPlayer(string name) : base(name) {}

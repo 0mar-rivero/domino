@@ -11,34 +11,46 @@ public static class Program
         List<Team<int>> teams = new() {
             new Team<int>(new List<Player<int>>(){
                 new SmartPlayer<int>("Alex"),
-                new SupportPlayer<int>("Jky"),
-                new Botagorda<int>("Daniela")
+                new SupportPlayer<int>("Jky")
+                // ,
+                // new Botagorda<int>("Daniela")
             }),
             new Team<int>(new List<Player<int>>(){
                 new DisablerPlayer<int>("Omar"),
                 new CarrierPlayer<int>("Anthuan")
             }),
-            new Team<int>(new List<Player<int>>(){
-                new Botagorda<int>("Anabel"),
-                new Botagorda<int>("Sherlyn")
-            }),
-            new Team<int>(new List<Player<int>>(){
-                new Botagorda<int>("Ciclanejo"),
-                new Botagorda<int>("Raudel")
-            })
+            // new Team<int>(new List<Player<int>>(){
+            //     new Botagorda<int>("Anabel"),
+            //     new Botagorda<int>("Sherlyn")
+            // }),
+            // new Team<int>(new List<Player<int>>(){
+            //     new Botagorda<int>("Ciclanejo"),
+            //     new Botagorda<int>("Raudel")
+            // })
         };
         // foreach (var name in names) 
         //     teams.Add(new Team<int>(new List<Player<int>>(){new Botagorda<int>(name)}));
         // Game<int> game = new Game<int>(new ClassicJudge(), teams);
 
         var judge = new ClassicJudge();
-        var tournament = new NGamesTournament<int>(1).Compose(new PlayOffTournament<int>()).Compose(new AllVsAllTournament<int>());
+        var tournament = new NGamesTournament<int>(2);
+        var a = tournament.SetJudge(judge).SetTeams(teams).GetEnumerator();
+
+        foreach (var gameState in tournament.SelectMany(game => game)) {
+            System.Console.WriteLine(gameState);
+        }
+
+        while (a.MoveNext()) {
+            var b = a.Current.GetEnumerator();
+            while (b.MoveNext())
+                System.Console.WriteLine(b.Current);
+        }
 
         foreach (var game in tournament.SetJudge(judge).SetTeams(teams))
             foreach (var gameState in game) {
                 // Console.Clear();
                 System.Console.WriteLine(gameState);
-                // Console.ReadLine();
+                Console.ReadLine();
             }
         Console.ReadLine();
     }
