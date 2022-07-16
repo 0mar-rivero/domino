@@ -104,12 +104,12 @@ internal class OneByOneEnumerator<T> : IEnumerator<T>
     private int Mcm(IEnumerable<int> items) {
         var mcm = 0;
         for (var i = 1; i < items.Count(); i++) {
-            mcm = Mcm(items.ElementAt(i), items.ElementAt(i-1));
+            mcm = OneByOneEnumerator<T>.Mcm(items.ElementAt(i), items.ElementAt(i-1));
         }
         return mcm;
     }
 
-    private int Mcm(int a, int b) => (a * b) / Mcd(a, b);
+    private static int Mcm(int a, int b) => (a * b) / Mcd(a, b);
 
     private static int Mcd(int a, int b) {
         if (a is 0 || b is 0) return 0;
