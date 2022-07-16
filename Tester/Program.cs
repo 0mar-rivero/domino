@@ -15,8 +15,8 @@ public static class Program
                 new Botagorda<int>("Daniela")
             }),
             new Team<int>(new List<Player<int>>(){
-                new DestroyerPlayer<int>("Omar"),
-                new SelfishPlayer<int>("Anthuan")
+                new DisablerPlayer<int>("Omar"),
+                new CarrierPlayer<int>("Anthuan")
             }),
             new Team<int>(new List<Player<int>>(){
                 new Botagorda<int>("Anabel"),
@@ -32,15 +32,14 @@ public static class Program
         // Game<int> game = new Game<int>(new ClassicJudge(), teams);
 
         var judge = new ClassicJudge();
-        var tournament = new EliminatoryTournament<int>();
+        var tournament = new NGamesTournament<int>(1).Compose(new PlayOffTournament<int>()).Compose(new AllVsAllTournament<int>());
 
         foreach (var game in tournament.SetJudge(judge).SetTeams(teams))
             foreach (var gameState in game) {
                 // Console.Clear();
                 System.Console.WriteLine(gameState);
-                Console.ReadLine();
+                // Console.ReadLine();
             }
-
         Console.ReadLine();
     }
 }

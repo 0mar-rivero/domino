@@ -49,6 +49,20 @@ public class SumPrimeGenerator : IGenerator<int>
         => "Genera todas las fichas cuya suma sea un numero primo";
 }
 
+public class FiboGenerator : IGenerator<int>
+{
+    public IEnumerable<Token<int>> Generate() {
+        foreach (var fibo in Fibonacci(1,1))
+            for (int i = 0; i < fibo; i++)
+                yield return new Token<int>(i, fibo - i);
+    }
+
+    private static IEnumerable<int> Fibonacci(int a, int b) {
+        yield return a;
+        foreach (var item in Fibonacci(b, b + a)) yield return item;
+    }
+}
+
 public static class GeneratorsExtensors
 {
     public static IGenerator<TSource> Join<TSource>(this IGenerator<TSource> g1, IGenerator<TSource> g2)

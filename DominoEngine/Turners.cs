@@ -1,10 +1,12 @@
-using DominoEngine;
-
-namespace Rules;
+namespace DominoEngine;
 
 public class ClassicTurner<T> : ITurner<T>
 {
-    // Turner clasico que reparte los turnos en un orden estricto
+    /// <summary>
+    /// Turner clasico que reparte los turnos en un orden inmutable
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public IEnumerable<Player<T>> Players(Partida<T> partida) => partida.Teams().OneByOne().Infinity();
 
     public override string ToString()
@@ -18,7 +20,11 @@ public class NPassesReverseTurner<T> : ITurner<T>
         _n = NumberOfPasses;
     }
 
-    // Cambia el sentido de reparticion de turnos cuando ocurran n pases
+    /// <summary>
+    /// Cambia el sentido de reparticion de turnos cuando ocurran n pases
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public IEnumerable<Player<T>> Players(Partida<T> partida) {
         var passes = 0;
         var index = 0;
@@ -43,6 +49,11 @@ public class NPassesReverseTurner<T> : ITurner<T>
 
 public class RandomTurner<T> : ITurner<T>
 {
+    /// <summary>
+    /// Devuelve un player aleatorio
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public IEnumerable<Player<T>> Players(Partida<T> partida) {
         while (true)
             yield return partida.Players().ElementAt(new Random().Next(partida.Players().Count()));

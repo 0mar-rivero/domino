@@ -25,10 +25,10 @@ public class SideMatcher<T> : IMatcher<T>
         if (!_validsTurns.ContainsKey(partida)) _validsTurns.Add(partida, new List<int>() { 0, -1 });
 
         // Actuliza los turnos validos de la forma clasica
-        foreach (var (i, move) in partida.Board.Enumerate().Where(x => !x.Item2.Check &&
-                x.Item1 > _validsTurns[partida].MaxBy(x => x) && x.Item1 >= 1)) {
+        foreach (var (turn, move) in partida.Board.Enumerate().Where((pair => !pair.item.Check &&
+                pair.index > _validsTurns[partida].MaxBy(x => x) && pair.index >= 1))) {
             _validsTurns[partida].Remove(move.Turn);
-            _validsTurns[partida].Add(i);
+            _validsTurns[partida].Add(turn);
         }
     }
 
@@ -105,7 +105,7 @@ public class LonganaMatcher<T> : IMatcher<T>
                 SelectMany(x => x.Value).MaxBy(x => x.Item1).Item1 && !x.Item2.Check)) {
             // Si es el primer movimiento del juego, solo modificamos a un jugador
             if (i is 0 || move.Turn is -1) {
-                _validsTurns[partida][move.PlayerId] = new List<(int turn, int player)>() { (i, move.PlayerId) };
+                _validsTurns[partida][move.PlayerId] = new List<(int turn, int player)>() { (i, move.PlayerId) }; 
                 continue;
             }
 
@@ -120,7 +120,7 @@ public class LonganaMatcher<T> : IMatcher<T>
                 // Actualiza si el turno no fue jugado por el dueño de la rama
                 else
                     if (_validsTurns[partida][player_].RemoveAll(x => x.turn == move.Turn) > 0)
-                        _validsTurns[partida][player_].Add((i, turnOwner));
+                        _validsTurns[partida][player_].Add((i, turnOwner)); 
             }
         }
     }
