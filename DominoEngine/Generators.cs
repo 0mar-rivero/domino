@@ -1,6 +1,4 @@
-using DominoEngine;
-
-namespace Rules;
+namespace DominoEngine;
 
 public class ClassicGenerator : IGenerator<int>
 {
@@ -28,7 +26,7 @@ public class NoDoubleGenerator : IGenerator<int>
         => "Genera todas las fichas de forma clasica sin contar dobles";
 }
 
-public class SumPrimeGenerator : IGenerator<int>
+public class SumPrimeGenerator : IGenerator<int> 
 {
     IEnumerable<Token<int>> IGenerator<int>.Generate() {
         var tokens = new List<Token<int>>();
@@ -49,19 +47,47 @@ public class SumPrimeGenerator : IGenerator<int>
         => "Genera todas las fichas cuya suma sea un numero primo";
 }
 
+public class FiboGenerator : IGenerator<int>
+{
+    public IEnumerable<Token<int>> Generate() {
+        foreach (var fibo in Fibonacci(1,1))
+            for (var i = 0; i < fibo; i++)
+                yield return new Token<int>(i, fibo - i);
+    }
+
+    private static IEnumerable<int> Fibonacci(int a, int b) {
+        yield return a;
+        foreach (var item in Fibonacci(b, b + a)) yield return item;
+    }
+}
+
 public static class GeneratorsExtensors
 {
+    /// <summary>
+    /// Une dos IGenerators
+    /// </summary>
+    /// <param name="g1"></param>
+    /// <param name="g2"></param>
+    /// <typeparam name="TSource"></typeparam>
+    /// <returns></returns>
     public static IGenerator<TSource> Join<TSource>(this IGenerator<TSource> g1, IGenerator<TSource> g2)
         => new JoinGenerator<TSource>(g1, g2);
 
+    /// <summary>
+    /// Intersecta IGenerators
+    /// </summary>
+    /// <param name="g1"></param>
+    /// <param name="g2"></param>
+    /// <typeparam name="TSource"></typeparam>
+    /// <returns></returns>
     public static IGenerator<TSource> Intersect<TSource>(this IGenerator<TSource> g1, IGenerator<TSource> g2)
         => new IntersectGenerator<TSource>(g1, g2);
 }
 
 internal class IntersectGenerator<T> : IGenerator<T>
 {
-    private IGenerator<T> _generator1;
-    private IGenerator<T> _generator2;
+    private readonly IGenerator<T> _generator1;
+    private readonly IGenerator<T> _generator2;
     private HashSet<Token<T>> _hashSet1 = new();
     private HashSet<Token<T>> _hashSet2 = new();
 
@@ -96,8 +122,8 @@ internal class IntersectGenerator<T> : IGenerator<T>
 
 internal class JoinGenerator<T> : IGenerator<T>
 {
-    private IGenerator<T> _generator1;
-    private IGenerator<T> _generator2;
+    private readonly IGenerator<T> _generator1;
+    private readonly IGenerator<T> _generator2;
     private HashSet<Token<T>> _hashSet1 = new();
     private HashSet<Token<T>> _hashSet2 = new();
 

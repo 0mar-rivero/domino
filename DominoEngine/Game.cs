@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Data;
 
 namespace DominoEngine;
 
-public class Game<T> : IEnumerable<GameState<T>>, IWinnerSelector<T> {
+public class Game<T> : IEnumerable<GameState<T>>, IWinneable<T> {
     private readonly Judge<T>? _judge; // Juez que guiara este Game por completo
     private readonly Partida<T>? _partida;
 
@@ -17,19 +16,28 @@ public class Game<T> : IEnumerable<GameState<T>>, IWinnerSelector<T> {
     public IEnumerator<GameState<T>> GetEnumerator() {
         _judge!.Start(_partida!); // Se preparan las condiciones para comenzar el Game
         // Crear el primer GameState, antes de la primera jugada
-        var firstState = new List<GameState<T>>() {new GameState<T>(_partida!.Board.ToList(), _partida.Hands)};
+        var firstState = new GameState<T>(_partida!.Board.ToList(), _partida.Hands);
         // Devolver los GameState uno a uno mientras se efectuan las jugadas
-        return firstState.Concat(_judge.Play(_partida).
+        return Enumerable.Repeat(firstState, 1).Concat(_judge.Play(_partida).
         Select((player, i) => new GameState<T>(_partida.Board.ToList(), _partida.Hands, i, player))).GetEnumerator();
     }
     
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
+    /// <summary>
+    /// Devuelve el winner que declare el juez
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<Team<T>> Winner() => _judge!.Winner(_partida!);
 
-    public IWinnerSelector<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) => new Game<T>(judge, teams);
+    public IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) => new Game<T>(judge, teams);
 
-    public IEnumerable<Game<T>> Games(IWinnerSelector<T> winsel) => new List<Game<T>>(){this};
+    /// <summary>
+    /// Devuelve un IEnumerable de si mismo
+    /// </summary>
+    /// <param name="winneable"></param>
+    /// <returns></returns>
+    public IEnumerable<Game<T>> Games(IWinneable<T> winneable) => Enumerable.Repeat(this, 1);
 }
 
 // Representa toda la informacion necesaria para un expectador luego de cada jugada

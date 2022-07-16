@@ -3,10 +3,9 @@
 public abstract class Player<T> {
 	protected readonly Random Random = new Random();
 	protected Hand<T>? Hand;
-	private readonly string _name = "";
 
 	protected Player(string name) {
-		_name = name;
+		Name = name;
 		PlayerId = this.GetHashCode();
 	}
 
@@ -17,12 +16,13 @@ public abstract class Player<T> {
 		return this;
 	}
 
-	public override string ToString() => _name;
-
+    
 	public abstract Move<T> Play(IEnumerable<Move<T>> possibleMoves, Func<int, IEnumerable<int>> passesInfo, List<Move<T>> board, 
 		Func<int, int> inHand, Func<Move<T>, double> scorer, Func<int, int, bool> partner);
 
 	public int PlayerId { get; }
+
+    protected string? Name { get; }
 }
 
 public abstract class CriterionPlayer<T> : Player<T>

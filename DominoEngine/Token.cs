@@ -1,16 +1,13 @@
 ﻿namespace DominoEngine;
 
 public class Token<T> {
-    private T _head;
-    private T _tail;
+	public T Tail { get; }
 
-    public T Tail { get => _tail; }
-
-    public T Head { get => _head; }
+    public T Head { get; }
 
     public Token(T head, T tail) {
-		_tail = tail;
-		_head = head;
+		Tail = tail;
+		Head = head;
 	}
 
 	public override bool Equals(object? obj) => obj is Token<T> obj1 && Equals(obj1);

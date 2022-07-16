@@ -1,9 +1,12 @@
-using DominoEngine;
-
-namespace Rules;
+namespace DominoEngine;
 
 public class EmptyHandFinisher<T> : IFinisher<T>
 {
+    /// <summary>
+    /// Se acaba el juego si algun jugador se pego
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public bool GameOver(Partida<T> partida)
         => PlayerEnd(partida);
 
@@ -16,12 +19,17 @@ public class EmptyHandFinisher<T> : IFinisher<T>
 
 public class AllCheckFinisher<T> : IFinisher<T>
 {
+    /// <summary>
+    /// El juego se acabo si todos los jugadres se pasaron
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public bool GameOver(Partida<T> partida)
         => AllCheck(partida);
 
-    private bool AllCheck(Partida<T> partida)
-        => partida.Players().All(player => !partida.Board.Where(move => move.PlayerId == partida.PlayerId(player)).IsEmpty() 
-            && partida.Board.Last(x => x.PlayerId == partida.PlayerId(player)).Check);
+    private static bool AllCheck(Partida<T> partida)
+        => partida.Players().All(player => !partida.Board.Where(move => move.PlayerId == Partida<T>.PlayerId(player)).IsEmpty() 
+            && partida.Board.Last(x => x.PlayerId == Partida<T>.PlayerId(player)).Check);
 
     public override string ToString()
         => "El juego termina cuando la ultima jugada de cada player fue un pase";
@@ -34,6 +42,11 @@ public class TurnCountFinisher<T> : IFinisher<T>
         _number = numberOfTurns;
     }
 
+    /// <summary>
+    /// El juego se acaba al llegar a un turno especifico
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public bool GameOver(Partida<T> partida)
         => partida.Board.Count(move => !move.Check) > _number;
 
@@ -48,6 +61,11 @@ public class PassesCountFinisher<T> : IFinisher<T>
         _number = numberOfPasses;
     }
 
+    /// <summary>
+    /// El juego se acaba si ha habido una cantidad mayor de n pases en el tablero
+    /// </summary>
+    /// <param name="partida"></param>
+    /// <returns></returns>
     public bool GameOver(Partida<T> partida)
         => partida.Board.Count(move => move.Check) > _number;
 
@@ -57,9 +75,23 @@ public class PassesCountFinisher<T> : IFinisher<T>
 
 public static class FinisherExtensors
 {
+    /// <summary>
+    /// Une dos IFinisher
+    /// </summary>
+    /// <param name="finisher1"></param>
+    /// <param name="finisher2"></param>
+    /// <typeparam name="TSource"></typeparam>
+    /// <returns></returns>
     public static IFinisher<TSource> Join<TSource>(this IFinisher<TSource> finisher1, IFinisher<TSource> finisher2)
         => new JoinFinisher<TSource>(finisher1, finisher2);
 
+    /// <summary>
+    /// Intersecta dos IFinisher
+    /// </summary>
+    /// <param name="finisher1"></param>
+    /// <param name="finisher2"></param>
+    /// <typeparam name="TSource"></typeparam>
+    /// <returns></returns>
     public static IFinisher<TSource> Intersect<TSource>(this IFinisher<TSource> finisher1, IFinisher<TSource> finisher2)
         => new JoinFinisher<TSource>(finisher1, finisher2);
 }
