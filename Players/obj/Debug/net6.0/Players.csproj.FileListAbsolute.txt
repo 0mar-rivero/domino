@@ -13,3 +13,18 @@ C:\Alex\Proyectos Pro\Domino\Domino\domino\Players\obj\Debug\net6.0\Players.pdb
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Players\bin\Debug\net6.0\DominoEngine.dll
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Players\bin\Debug\net6.0\DominoEngine.pdb
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Players\obj\Debug\net6.0\Players.csproj.CopyComplete
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\Players.deps.json
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\Players.dll
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\ref\Players.dll
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\Players.pdb
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\DominoEngine.dll
+D:\Escuela\Programación\domino\Players\bin\Debug\net6.0\DominoEngine.pdb
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.csproj.AssemblyReference.cache
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.GeneratedMSBuildEditorConfig.editorconfig
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.AssemblyInfoInputs.cache
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.AssemblyInfo.cs
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.csproj.CoreCompileInputs.cache
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.csproj.CopyComplete
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.dll
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\ref\Players.dll
+D:\Escuela\Programación\domino\Players\obj\Debug\net6.0\Players.pdb

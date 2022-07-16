@@ -18,3 +18,23 @@ C:\Alex\Proyectos Pro\Domino\Domino\domino\Tester\obj\Debug\net6.0\Tester.pdb
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Tester\bin\Debug\net6.0\Players.dll
 C:\Alex\Proyectos Pro\Domino\Domino\domino\Tester\bin\Debug\net6.0\Players.pdb
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Tester.exe
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Tester.deps.json
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Tester.dll
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\ref\Tester.dll
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Tester.pdb
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\DominoEngine.dll
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Players.dll
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\DominoEngine.pdb
+D:\Escuela\Programación\domino\Tester\bin\Debug\net6.0\Players.pdb
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.dll
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\ref\Tester.dll
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.pdb
+D:\Escuela\Programación\domino\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache

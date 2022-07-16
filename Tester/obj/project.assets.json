@@ -46,19 +46,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alex\\.nuget\\packages\\": {}
+    "C:\\Users\\omriv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Tester\\Tester.csproj",
+      "projectUniqueName": "D:\\Escuela\\Programación\\domino\\Tester\\Tester.csproj",
       "projectName": "Tester",
-      "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Tester\\Tester.csproj",
-      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Tester\\obj\\",
+      "projectPath": "D:\\Escuela\\Programación\\domino\\Tester\\Tester.csproj",
+      "packagesPath": "C:\\Users\\omriv\\.nuget\\packages\\",
+      "outputPath": "D:\\Escuela\\Programación\\domino\\Tester\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\omriv\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -70,11 +70,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj": {
-              "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj"
+            "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj": {
+              "projectPath": "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj"
             },
-            "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj": {
-              "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj"
+            "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj": {
+              "projectPath": "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj"
             }
           }
         }
@@ -103,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.107\\RuntimeIdentifierGraph.json"
       }
     }
   }
