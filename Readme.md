@@ -1,6 +1,6 @@
 # MyDominoPWA
 
-Ejecutar en la consola:
+Desde el directorio de la solución del proyecto ejecutar en la consola:
 ```c#
 dotnet run --project MyDominoPwa
 ```
