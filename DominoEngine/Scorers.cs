@@ -22,7 +22,7 @@ public class ClassicScorer : IScorer<int>
             var winners = new List<Team<int>>(){partida.TeamOf(player)};
             return winners.Concat(partida.Teams().Complement(winners));
         }
-        return partida.Teams().OrderByDescending(team => team.Sum(player => partida.Hand(player).
+        return partida.Teams().OrderBy(team => team.Sum(player => partida.Hand(player).
                 Sum(TokenScorer)));
     }
 
@@ -52,7 +52,7 @@ public class ModFiveScorer : IScorer<int>
     /// <param name="partida"></param>
     /// <returns></returns>
     public IEnumerable<Team<int>> Winner(Partida<int> partida)
-        => partida.Teams().OrderByDescending(team => team.Sum(player => partida.Board.
+        => partida.Teams().OrderBy(team => team.Sum(player => partida.Board.
             Where(move => move.PlayerId == Partida<int>.PlayerId(player) && !move.Check).Sum(move => Scorer(partida, move))));
 
     public override string ToString()
@@ -84,7 +84,7 @@ public class TurnDividesBoardScorer : IScorer<int>
     public double TokenScorer(Token<int> token) => token.Head + token.Tail;
 
     public IEnumerable<Team<int>> Winner(Partida<int> partida)
-        => partida.Teams().OrderByDescending(team => team.Sum(player => partida.Board.Enumerate().
+        => partida.Teams().OrderBy(team => team.Sum(player => partida.Board.Enumerate().
             Where(pair => !pair.Item2.Check && pair.Item2.PlayerId == Partida<int>.PlayerId(player)).
             Sum(pair => _scores[partida].First(x => x.turn == pair.Item1).score)));
 
