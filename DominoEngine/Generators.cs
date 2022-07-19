@@ -62,6 +62,9 @@ public class FiboGenerator : IGenerator<int>
         yield return a;
         foreach (var item in Fibonacci(b, b + a)) yield return item;
     }
+
+    public override string ToString() 
+        => "Genera todas las fichas cuya suma sea un numero de Fibonacci";
 }
 
 public static class GeneratorsExtensors
@@ -69,22 +72,22 @@ public static class GeneratorsExtensors
     /// <summary>
     /// Une dos IGenerators
     /// </summary>
-    /// <param name="g1"></param>
-    /// <param name="g2"></param>
+    /// <param name="generator1"></param>
+    /// <param name="generator2"></param>
     /// <typeparam name="TSource"></typeparam>
     /// <returns></returns>
-    public static IGenerator<TSource> Join<TSource>(this IGenerator<TSource> g1, IGenerator<TSource> g2)
-        => new JoinGenerator<TSource>(g1, g2);
+    public static IGenerator<TSource> Join<TSource>(this IGenerator<TSource> generator1, IGenerator<TSource> generator2)
+        => new JoinGenerator<TSource>(generator1, generator1);
 
     /// <summary>
-    /// Intersecta IGenerators
+    /// Intersecta dos IGenerators
     /// </summary>
-    /// <param name="g1"></param>
-    /// <param name="g2"></param>
+    /// <param name="generator1"></param>
+    /// <param name="generator2"></param>
     /// <typeparam name="TSource"></typeparam>
     /// <returns></returns>
-    public static IGenerator<TSource> Intersect<TSource>(this IGenerator<TSource> g1, IGenerator<TSource> g2)
-        => new IntersectGenerator<TSource>(g1, g2);
+    public static IGenerator<TSource> Intersect<TSource>(this IGenerator<TSource> generator1, IGenerator<TSource> generator2)
+        => new IntersectGenerator<TSource>(generator1, generator2);
 }
 
 internal class IntersectGenerator<T> : IGenerator<T>
