@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z3E55kDL1c1PYKghaWhC7PgDwFQ03OlkPh1t9EEkaC4=",
+  "Hash": "aKALGSSS4rB9GHE/rWi1A4T7RvjflFWcoyESirqaapQ=",
   "Source": "MyDominoPwa",
   "BasePath": "/",
   "Mode": "Root",
@@ -48,7 +48,7 @@
       "AssetTraitValue": "boot",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.5\\build\\net6.0\\blazor.webassembly.js"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.0\\build\\net6.0\\blazor.webassembly.js"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\DominoEngine.dll",
@@ -218,7 +218,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
@@ -235,7 +235,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
@@ -252,7 +252,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
@@ -269,7 +269,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
@@ -286,7 +286,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
@@ -303,7 +303,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.5\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.CSharp.dll",
@@ -507,7 +507,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.dll",
@@ -575,7 +575,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.jsinterop\\6.0.5\\lib\\net6.0\\Microsoft.JSInterop.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\lib\\net6.0\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll",
@@ -592,7 +592,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.5\\lib\\net6.0\\Microsoft.JSInterop.WebAssembly.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.0\\lib\\net6.0\\Microsoft.JSInterop.WebAssembly.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.VisualBasic.Core.dll",
@@ -1612,7 +1612,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\system.io.pipelines\\6.0.3\\lib\\net6.0\\System.IO.Pipelines.dll"
+      "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\system.io.pipelines\\6.0.0\\lib\\net6.0\\System.IO.Pipelines.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipes.AccessControl.dll",
@@ -3485,6 +3485,23 @@
       "OriginalItemSpec": "C:\\Users\\omriv\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.7\\runtimes\\browser-wasm\\lib\\net6.0\\WindowsBase.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\+2cj1b3Q.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.JSInterop.WebAssembly.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\+8qsWOL2.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -3570,6 +3587,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Threading.Channels.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\+LVNyrck.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\+OMkiLJV.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -3621,40 +3655,6 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Text.Encoding.dll"
     },
     {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\0SajeAP0.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\0wMqX8PJ.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/System.IO.Pipelines.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll"
-    },
-    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\1FvDttxr.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -3689,6 +3689,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\DominoEngine.pdb"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\1vLe0TNB.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\1ZVmNQhS.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -3721,23 +3738,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.ValueTuple.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\2MgReE0g.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\2osUgEtN.gz",
@@ -4709,6 +4709,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.AccessControl.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\eFJBpIxa.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\EmB1eXwy.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -4726,21 +4743,21 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.AppContext.dll"
     },
     {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\euDpT5+3.gz",
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\ePxBl736.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
       "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\EXM3QxGC.gz",
@@ -4862,6 +4879,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Data.Common.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\gB3Z41ag.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\GrqallpA.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -4928,23 +4962,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.Process.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\hKTyVpvB.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/blazor.webassembly.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\HmCg2Fkw.gz",
@@ -5100,6 +5117,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Claims.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\J9Xa2D6B.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.IO.Pipelines.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\JrQF+l3D.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -5149,23 +5183,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipes.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\KTYLgWo5.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\kvy3UvJz.gz",
@@ -5712,23 +5729,6 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.ComponentModel.Primitives.dll"
     },
     {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\PZuUb+KG.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.JSInterop.WebAssembly.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll"
-    },
-    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\Q1eOdjdv.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -6018,23 +6018,6 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Runtime.Serialization.Json.dll"
     },
     {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\SEGsxFU6.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
-    },
-    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\SgIjBLY9.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -6152,6 +6135,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Globalization.Extensions.dll"
+    },
+    {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\tF7NfrAM.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\TL4b9WqI.gz",
@@ -6307,6 +6307,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Cryptography.X509Certificates.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\UR5XqEjg.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\usU2XGys.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -6356,23 +6373,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\netstandard.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\vfh4Qm+8.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\VHNwTPeW.gz",
@@ -6511,23 +6511,6 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Memory.dll"
     },
     {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\W3tbonVR.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
-    },
-    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\wbp+XXBB.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -6647,6 +6630,23 @@
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Resources.ResourceManager.dll"
     },
     {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\xGUppGaO.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/blazor.webassembly.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js"
+    },
+    {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\XIvPppB7.gz",
       "SourceId": "MyDominoPwa",
       "SourceType": "Computed",
@@ -6662,23 +6662,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Primitives.dll"
-    },
-    {
-      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\XLwRxgoM.gz",
-      "SourceId": "MyDominoPwa",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\XwxscGOB.gz",
@@ -6764,6 +6747,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.FileSystem.DriveInfo.dll"
+    },
+    {
+      "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\ykWRXFDg.gz",
+      "SourceId": "MyDominoPwa",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\Debug\\net6.0\\build-gz\\ylb0bkr+.gz",

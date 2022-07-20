@@ -1,6 +1,5 @@
 ﻿@page "/Game"
 @using MyDominoPwa.DominoModel
-@using Players
 
 <h1>Game!!!</h1>
 <div class="border-bottom m-4">
@@ -80,8 +79,6 @@
 
 	protected override void OnInitialized() {
 		base.OnInitialized();
-	// _gameEnumerator = GlobalState.GLobalTournament.SelectMany(t=>t).GetEnumerator();
-	// if (_gameEnumerator.MoveNext()) GlobalState.GlobalGameState = _gameEnumerator.Current;
 		_tournamentEnumerator = GlobalState.GLobalTournament.GetEnumerator();
 		if (_tournamentEnumerator.MoveNext()) {
 			GlobalState.GlobalGame = _tournamentEnumerator.Current;

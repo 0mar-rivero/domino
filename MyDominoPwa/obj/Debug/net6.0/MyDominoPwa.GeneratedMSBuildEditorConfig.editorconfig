@@ -42,16 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Escuela/Programación/domino/MyDominoPwa/Pages/PlayerSelectorMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyU2VsZWN0b3JNZW51LnJhem9y
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/MenusFolder/PlayerSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudXNGb2xkZXJcUGxheWVyU2VsZWN0b3JNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Escuela/Programación/domino/MyDominoPwa/Pages/RuleSelectorMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUnVsZVNlbGVjdG9yTWVudS5yYXpvcg==
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/MenusFolder/RuleSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudXNGb2xkZXJcUnVsZVNlbGVjdG9yTWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Escuela/Programación/domino/MyDominoPwa/Pages/TournamentSelectorMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG91cm5hbWVudFNlbGVjdG9yTWVudS5yYXpvcg==
+[D:/Escuela/Programación/domino/MyDominoPwa/Pages/MenusFolder/TournamentSelectorMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudXNGb2xkZXJcVG91cm5hbWVudFNlbGVjdG9yTWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Escuela/Programación/domino/MyDominoPwa/PlayerSelectorComponents/TeamBox.razor]
