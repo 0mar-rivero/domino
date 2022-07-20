@@ -6,7 +6,7 @@ public class GlobalState<TDominoType> {
 	public GameState<int>? GlobalGameState { get; set; }
 	public Game<int> GlobalGame { get; set; } = new();
 	public Tournament<int>? GLobalTournament { get; set; }
-	public bool Visible { get; internal set; } = false;
+	public bool Started { get; internal set; }
 
 	public IMatcher<TDominoType>? Matcher { get; set; }
 	public IScorer<TDominoType>? Scorer { get; set; }

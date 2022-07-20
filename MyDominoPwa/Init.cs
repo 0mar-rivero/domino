@@ -34,9 +34,9 @@ public class Init {
 		var relativePrimesMatcher = new RelativesPrimesMatcher();
 		var evenOddMatcher = new EvenOddMatcher();
 		var teamTokenMatcher = new TeamTokenInvalidMatcher<int>();
+		MatchersDic.Add(classicMatcher.GetHashCode(), ("Classic Matcher", classicMatcher));
 		MatchersDic.Add(sideMatcher.GetHashCode(), ("Side Matcher", sideMatcher));
 		MatchersDic.Add(equalMatcher.GetHashCode(), ("Equal Matcher", equalMatcher));
-		MatchersDic.Add(classicMatcher.GetHashCode(), ("Classic Matcher", classicMatcher));
 		MatchersDic.Add(longanaSideMatcher.GetHashCode(), ("Longana Side Matcher", longanaSideMatcher));
 		MatchersDic.Add(longanaMatcher.GetHashCode(), ("Longana Matcher", longanaMatcher));
 		MatchersDic.Add(relativePrimesMatcher.GetHashCode(), ("Relative Primes Matcher", relativePrimesMatcher));
@@ -59,9 +59,9 @@ public class Init {
 		var classicFinisher = emptyHandFinisher.Join(allCheckCheckFinisher);
 		var turnCountFinisher = new TurnCountFinisher<int>(20);
 		var passCountFinisher = new PassesCountFinisher<int>(10);
+		FinishersDic.Add(classicFinisher.GetHashCode(), ("Classic Finisher", classicFinisher));
 		FinishersDic.Add(emptyHandFinisher.GetHashCode(), ("Empty Hand Finisher", emptyHandFinisher));
 		FinishersDic.Add(allCheckCheckFinisher.GetHashCode(), ("All Check Finisher", allCheckCheckFinisher));
-		FinishersDic.Add(classicFinisher.GetHashCode(), ("Classic Finisher", classicFinisher));
 		FinishersDic.Add(turnCountFinisher.GetHashCode(), ("Turn Count Finisher (20)", turnCountFinisher));
 		FinishersDic.Add(passCountFinisher.GetHashCode(), ("Passes Count Finisher (10)", passCountFinisher));
 	}
