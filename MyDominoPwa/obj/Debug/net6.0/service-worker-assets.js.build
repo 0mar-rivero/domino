@@ -861,7 +861,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-Tfe7XxnUqeMV7CbNqJUCGZJuH15tNQoWgyPMlf4lmkw=",
+      "hash": "sha256-8mN3yzE34sE2DGWyPix812swjbg8InZGkrXzJf\/lgB4=",
       "url": "_framework\/DominoEngine.dll"
     },
     {
@@ -869,7 +869,7 @@
       "url": "_framework\/Players.dll"
     },
     {
-      "hash": "sha256-neV8rZQTzQXX7v\/7NVspXt9Sx\/k\/OkTtqkxXRK89FqA=",
+      "hash": "sha256-T0SK+eCtKARZRD3JYab7nEOeidoZZJL9xZb386k9JO8=",
       "url": "_framework\/DominoEngine.pdb"
     },
     {
@@ -877,11 +877,11 @@
       "url": "_framework\/Players.pdb"
     },
     {
-      "hash": "sha256-Ga8nfu\/u3CRdtCh709gqsbta\/OS+qGWcka1ESBGL\/TE=",
+      "hash": "sha256-iiwAEgG0KNmanZ6F6y5Yi9gvwu9SrYGeBWM4dNVMwrA=",
       "url": "_framework\/MyDominoPwa.dll"
     },
     {
-      "hash": "sha256-747b\/uKbnd\/MlrSmtbyPAiMGqc9UwSZTgtRLWFRn9ak=",
+      "hash": "sha256-b95PuqkLCGk6jgg6RRHFJh54swn3uxG4BoMWASjKJvM=",
       "url": "_framework\/MyDominoPwa.pdb"
     },
     {
@@ -889,9 +889,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-QgfLpnHUgEqxGYAWfJR\/yBusw+famrENS\/QraPsXMjI=",
+      "hash": "sha256-RTmGKaJmN9CHtfRtHuob5OMo7aZG\/7lbbPyJt9i49Q0=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "8brC+xNZ"
+  "version": "zV+qCaN0"
 };

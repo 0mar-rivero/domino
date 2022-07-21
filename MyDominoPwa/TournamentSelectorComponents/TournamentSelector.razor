@@ -72,7 +72,7 @@
 		set {
 			_selectedId = value;
 			AdditionalParamValueUpdate();
-			if (!TournamentDictionary.IsEmpty()) GlobalState.GLobalTournament = TournamentDictionary[SelectedId].tournament;
+			if (!TournamentDictionary.IsEmpty()) GlobalState.Tournament = TournamentDictionary[SelectedId].tournament;
 		}
 	}
 
@@ -132,7 +132,7 @@
 		base.OnInitialized();
 		Reset();
 		if (!TournamentDictionary.IsEmpty())
-			GlobalState.GLobalTournament = TournamentDictionary[SelectedId].tournament;
+			GlobalState.Tournament = TournamentDictionary[SelectedId].tournament;
 	}
 
 }

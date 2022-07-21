@@ -196,17 +196,17 @@
       "mscorlib.dll": "sha256-wmk56X5dbt29rrFZKEFpOFjotkZA+JSxA4fqkgmBsOU=",
       "netstandard.dll": "sha256-CvlfDmNgFRYT7l\/xZKu91FlbTFyLG\/5cH7YX63k9ghE=",
       "System.Private.CoreLib.dll": "sha256-aF4imeOpA59D6F5qCLabzkeY7MvRZzNYzavhB\/bdxvM=",
-      "DominoEngine.dll": "sha256-Tfe7XxnUqeMV7CbNqJUCGZJuH15tNQoWgyPMlf4lmkw=",
+      "DominoEngine.dll": "sha256-8mN3yzE34sE2DGWyPix812swjbg8InZGkrXzJf\/lgB4=",
       "Players.dll": "sha256-OyHsyklHq5zxinpSn7gTjmDwwVlH0somQEdiaNVBS0w=",
-      "MyDominoPwa.dll": "sha256-t7+O\/3zSNyN11ewubsABXcvgb61fsIXtOgJEFcMjfdY="
+      "MyDominoPwa.dll": "sha256-d21vzwxvWiJBGA5JGqj6Tpn2uUlF1dNK2vvlRNC5ir8="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "DominoEngine.pdb": "sha256-neV8rZQTzQXX7v\/7NVspXt9Sx\/k\/OkTtqkxXRK89FqA=",
+      "DominoEngine.pdb": "sha256-T0SK+eCtKARZRD3JYab7nEOeidoZZJL9xZb386k9JO8=",
       "Players.pdb": "sha256-BGF+Uyeo0ANOypOEH5ZVF60WNcyyIaqvUnwk3nigmhc=",
-      "MyDominoPwa.pdb": "sha256-PcUQw2ItNN8FQyW6n\/2TX6IZ35UY5FF7JIbH4ZAL+WA="
+      "MyDominoPwa.pdb": "sha256-fJNQkYGwYFi8VeATnbL\/SRWEM8WfOfV92hc7c2vlnjY="
     },
     "runtime": {
       "dotnet.6.0.7.kaffxrr93v.js": "sha256-pvJcJ6jtDSfxgXm03QYRTm4aAi9PSzMSJODReHtvASY=",

@@ -3,11 +3,15 @@
 namespace MyDominoPwa;
 
 public class GlobalState<TDominoType> {
-	public GameState<int>? GlobalGameState { get; set; }
-	public Game<int> GlobalGame { get; set; } = new();
-	public Tournament<int>? GLobalTournament { get; set; }
-	public bool Started { get; internal set; }
+	public GameState<int>? State { get; set; }
+	public Game<int> Game { get; set; } = new();
 
+	public IEnumerator<GameState<int>> GameEnumerator { get; set; }
+	
+	public IEnumerator<Game<int>> Enumerator { get; set; }
+	public Tournament<int>? Tournament { get; set; }
+	public bool Started { get; internal set; }
+	public bool Created { get; internal set; }
 	public IMatcher<TDominoType>? Matcher { get; set; }
 	public IScorer<TDominoType>? Scorer { get; set; }
 	public ITurner<TDominoType>? Turner { get; set; }

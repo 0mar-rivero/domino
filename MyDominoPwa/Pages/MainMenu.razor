@@ -26,14 +26,15 @@
 		if (GlobalState.Dealer is null || GlobalState.Finisher is null
 		    || GlobalState.Generator is null || GlobalState.Matcher is null
 		    || GlobalState.Scorer is null || GlobalState.Turner is null) return;
-		if (GlobalState.GLobalTournament is null) return;
+		if (GlobalState.Tournament is null) return;
 		if (GlobalState.Teams is null) return;
 		GlobalState.Teams = GlobalState.Teams.Where(t => t.Value.Count != 0).ToDictionary(t => t.Key, t => t.Value);
 		if (GlobalState.Teams.Count <= 1) return;
 		GlobalState.Judge = new Judge<int>(GlobalState.Generator, GlobalState.Dealer, GlobalState.Turner, GlobalState.Matcher, GlobalState.Scorer, GlobalState.Finisher);
-		GlobalState.GLobalTournament.SetJudge(GlobalState.Judge);
-		GlobalState.GLobalTournament.SetTeams(GlobalState.Teams.Values.ToList());
-		GlobalState.Started = true;
+		GlobalState.Tournament.SetJudge(GlobalState.Judge);
+		GlobalState.Tournament.SetTeams(GlobalState.Teams.Values.ToList());
+		GlobalState.Created = true;
+		
 		NavigationManager.NavigateTo("Game");
 	}
 

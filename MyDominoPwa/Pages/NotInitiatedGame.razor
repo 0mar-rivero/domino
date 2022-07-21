@@ -1,0 +1,12 @@
+﻿@inject NavigationManager NavigationManager
+
+
+<h3>Game not Found!!!</h3>
+<a @onclick="Nav" href="#">Create New Game</a>
+
+@code {
+
+	private void Nav() {
+		NavigationManager.NavigateTo("");
+	}
+}
