@@ -48,6 +48,8 @@ public abstract class Tournament<T> : IEnumerable<Game<T>>, IWinneable<T>
     public virtual IEnumerator<Game<T>> GetEnumerator() => Games(new Game<T>()).GetEnumerator();
 
     public abstract IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams);
+
+    public IWinneable<T> NewInstance() => NewInstance(Judge!, Teams!);
 }
 
 public class AllVsAllTournament<T> : Tournament<T>
