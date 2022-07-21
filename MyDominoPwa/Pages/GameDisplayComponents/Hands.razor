@@ -1,0 +1,25 @@
+﻿<div class="border p-2" style="background-color: azure">
+	<table style="margin:0;position: relative;">
+		@foreach (var (player,hand) in PlayerHands!) {
+			<tr>
+				<td>
+					<h3>@player.ToString()</h3>
+				</td>
+				@foreach (var token in hand) {
+					<td>
+						<Token First="@token.Head.ToString()" Second="@token.Tail.ToString()" IsDouble="@true"></Token>
+					</td>
+				}
+
+			</tr>
+		}
+
+	</table>
+</div>
+
+@code {
+
+	[Parameter, EditorRequired]
+	public Dictionary<Player<int>, Hand<int>>? PlayerHands { get; set; }
+	
+}

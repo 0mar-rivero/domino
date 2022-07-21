@@ -46,7 +46,7 @@
 
 	private void AddDealer() {
 		object[] args = { _totalTokens, _tokensPerHand };
-		var dealer = (IDealer<int>)_constructorInfo.Invoke(args);
+		var dealer = (IDealer<int>)_constructorInfo!.Invoke(args);
 		DealerDictionary.Add(dealer.GetHashCode(), (new Regex(@"\((\d+)\)\s\((\d+)\)$").Replace(DealerDictionary[SelectedId].name, $"({_totalTokens}) ({_tokensPerHand})"), dealer));
 		SelectedId = dealer.GetHashCode();
 	}
@@ -54,7 +54,7 @@
 	void AdditionalParamValueUpdate() {
 		if (DealerDictionary.IsEmpty()) return;
 		_constructorInfo = DealerDictionary[SelectedId].dealer.GetType().GetConstructor(new[] { typeof(int), typeof(int) });
-		(_additionalParamName1,_additionalParamName2) = (_constructorInfo?.GetParameters()[0].Name, _constructorInfo?.GetParameters()[1].Name);
+		(_additionalParamName1,_additionalParamName2) = (_constructorInfo?.GetParameters()[0].Name!, _constructorInfo?.GetParameters()[1].Name!);
 		var match = new Regex(@"\((\d+)\)\s\((\d+)\)$").Match(DealerDictionary[SelectedId].name);
 		(_totalTokens, _tokensPerHand) = match.Success ? (int.Parse(match.Groups[1].Value),int.Parse(match.Groups[2].Value)) : (0,0);
 	}

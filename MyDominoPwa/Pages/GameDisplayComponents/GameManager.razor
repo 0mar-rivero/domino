@@ -1,0 +1,62 @@
+﻿@using MyDominoPwa.DominoModel
+@using System.Collections
+
+<h1>Game!!!</h1>
+@if (!_isGameOver) {
+	<div class="border-bottom m-4">
+
+		<span>Turno: @GlobalState.GameEnumerator!.Current.Turn</span>
+		<br/>
+		@if (GlobalState.GameEnumerator.Current.Turn is not -1) {
+			<span>Player: @(GlobalState.GameEnumerator.Current.PlayerToPlay.ToString())</span>
+			@if (GlobalState.GameEnumerator.Current.Board.Last().Check) {
+				<span> se pasó por mayoneso</span>
+			} else {
+				<span> jugó, que crack!!!</span>
+			}
+			<br/>
+		}
+		<button class="btn btn-success m-2" @onclick="@NextMove">Next Turn</button>
+
+	</div>
+	<Board GameState="@GlobalState.GameEnumerator.Current"/>
+	<Hands PlayerHands="@GlobalState.GameEnumerator.Current.Hands"/>
+} else {
+	<h3>Ganó el team fritura(@(string.Join(", ", GlobalState.Enumerator?.Current.Winner().FirstOrDefault()!)).</h3>
+	<button class="btn btn-success m-2" @onclick="@NextGame">Next Game</button>
+}
+
+@code {
+	[Parameter, EditorRequired]
+	public EventCallback ParentStateHasChange { get; set; }
+
+	private bool _isGameOver;
+
+	void NextMove() {
+		if (GlobalState.GameEnumerator != null && !GlobalState.GameEnumerator.MoveNext())
+			_isGameOver = true;
+	}
+
+	void NextGame() {
+		if (GlobalState.Enumerator != null && !GlobalState.Enumerator.MoveNext()) {
+			GlobalState.Over = true;
+			ParentStateHasChange.InvokeAsync();
+			return;
+		}
+		_isGameOver = false;
+		GlobalState.GameEnumerator = GlobalState.Enumerator?.Current.GetEnumerator();
+		NextMove();
+	}
+
+	protected override void OnInitialized() {
+		base.OnInitialized();
+		if (GlobalState.Started) return;
+		GlobalState.Enumerator = GlobalState.Tournament!.GetEnumerator();
+		if (GlobalState.Enumerator.MoveNext()) {
+			GlobalState.GameEnumerator = GlobalState.Enumerator.Current.GetEnumerator();
+		}
+		GlobalState.GameEnumerator?.MoveNext();
+		GlobalState.Started = true;
+	}
+
+}

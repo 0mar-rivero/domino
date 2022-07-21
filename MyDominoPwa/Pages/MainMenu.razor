@@ -14,14 +14,6 @@
 
 
 @code {
-	List<Team<int>> _teams = new();
-	Judge<int> _judge = new ClassicJudge();
-	Tournament<int> _tournament = new DirichletTournament<int>(3);
-
-	private void SetTeams(List<Team<int>> teams) => _teams = teams;
-	private void SetJudge(Judge<int> judge) => _judge = judge;
-	private void SetTournament(Tournament<int> tournament) => _tournament = tournament;
-
 	private void GlobalSetter() {
 		if (GlobalState.Dealer is null || GlobalState.Finisher is null
 		    || GlobalState.Generator is null || GlobalState.Matcher is null
@@ -33,6 +25,7 @@
 		GlobalState.Judge = new Judge<int>(GlobalState.Generator, GlobalState.Dealer, GlobalState.Turner, GlobalState.Matcher, GlobalState.Scorer, GlobalState.Finisher);
 		GlobalState.Tournament.SetJudge(GlobalState.Judge);
 		GlobalState.Tournament.SetTeams(GlobalState.Teams.Values.ToList());
+		GlobalState.Reset();
 		GlobalState.Created = true;
 		
 		NavigationManager.NavigateTo("Game");

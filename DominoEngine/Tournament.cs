@@ -30,7 +30,7 @@ public abstract class Tournament<T> : IEnumerable<Game<T>>, IWinneable<T>
     /// Setea Teams y devuelve la propia instancia
     /// </summary>
     /// <param name="teams"></param>
-    /// <returns></returns>
+    /// <returns>El mismo torneo.</returns>
     /// <exception cref="Exception"></exception>
     public Tournament<T> SetTeams(IEnumerable<Team<T>> teams) {
         if (teams.Any(team => team.IsEmpty()))

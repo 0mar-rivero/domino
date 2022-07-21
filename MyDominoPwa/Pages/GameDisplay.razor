@@ -1,7 +1,9 @@
 ﻿@page "/Game"
 
-@if (GlobalState.Created) {
-	<GameManager/>
+@if (GlobalState.Over) {
+	<Winners EndTournament="@StateHasChanged" />
+} else if (GlobalState.Created) {
+	<GameManager ParentStateHasChange="@StateHasChanged"/>
 } else {
 	<NotInitiatedGame/>
 }

@@ -1,10 +1,10 @@
 ﻿@if (!Inverted) {
 	<td>
-		<Token First="@(Inverted ? Branch.Tail.ToString() : Branch.Head.ToString())" Second="@(Inverted ? Branch.Head.ToString() : Branch.Tail.ToString())"></Token>
+		<Token First="@(Inverted ? Branch?.Tail.ToString() : Branch?.Head.ToString())" Second="@(Inverted ? Branch?.Head.ToString() : Branch?.Tail.ToString())"></Token>
 	</td>
 }
 
-@foreach (var item in Branch.Children) {
+@foreach (var item in Branch?.Children!) {
 	<Row2 Branch="item" Inverted="@Inverted"></Row2>
 }
 @if (Inverted && Branch.Turn is not -1) {
@@ -16,7 +16,7 @@
 @code {
 
 	[Parameter, EditorRequired]
-	public BoardTree<int> Branch { get; set; }
+	public BoardTree<int>? Branch { get; set; }
 
 	[Parameter]
 	public bool Inverted { get; set; }

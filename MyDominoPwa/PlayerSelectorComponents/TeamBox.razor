@@ -14,7 +14,7 @@
 	<input class="mt-2 mb-2 align-self-baseline" type="text" @bind="@_newPlayerName" style="border-radius: 50px; height: 35px" placeholder="New Player"/>
 	<select class="mt-2 mb-2 align-self-baseline" style="width: min(max(25%, 200px), 100%); border-radius: 50px; height: 35px" @bind="@_newPlayerType">
 		<option value="" selected hidden>Player Type</option>
-		@foreach (var (type,_) in Players) {
+		@foreach (var (type,_) in Players!) {
 			<option value="@type">@type</option>
 		}
 	</select>
@@ -31,10 +31,7 @@
 
 
 	[Parameter, EditorRequired]
-	public Dictionary<string, Player<int>> Players { get; set; }
-
-	// [Parameter, EditorRequired]
-	// public EventCallback<Team<TDominoType>> TeamCreator { get; set; }
+	public Dictionary<string, Player<int>>? Players { get; set; }
 
 	[Parameter, EditorRequired]
 	public int Number { get; set; }
@@ -50,7 +47,7 @@
 
 	private void AddPlayer() {
 		if (_newPlayerType is "" || _newPlayerName is "") return;
-		var ctorInfo = Players[_newPlayerType].GetType().GetConstructor(new[] { typeof(string) });
+		var ctorInfo = Players?[_newPlayerType].GetType().GetConstructor(new[] { typeof(string) });
 		var player = (Player<int>)ctorInfo!.Invoke(new object[] { _newPlayerName });
 		_team[player] = false;
 		Reset();

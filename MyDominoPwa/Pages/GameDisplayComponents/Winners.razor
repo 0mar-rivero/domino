@@ -1,0 +1,42 @@
+﻿@inject NavigationManager NavigationManager
+
+<h3>Rank:</h3>
+<ol>
+	@foreach (var (team,i) in GlobalState.Tournament!.Winner().Select((t, i) => (t,i))) {
+		<li @key="team">
+			<ul>
+				@foreach (var pLayer in team) {
+					<li @key="@pLayer">
+						@if (i is 0) {
+							<h3>@pLayer.ToString()</h3>
+						} else {
+							<h4>@pLayer.ToString()</h4>
+						}
+					</li>
+				}
+			</ul>
+		</li>
+	}
+</ol>
+<button class="btn btn-success p-2 m-2" style="border-radius: 50px" @onclick="@RestartTournament">Restart Torunament</button> <br/>
+<button class="btn btn-primary p-2 m-2" style="border-radius: 50px" @onclick="@CreateNewTournament">Create New Tournament</button>
+
+@code{
+
+	[Parameter, EditorRequired]
+	public EventCallback EndTournament { get; set; }
+	
+	private void RestartTournament() {
+		if (GlobalState.Tournament != null) GlobalState.Tournament = (Tournament<int>?)GlobalState.Tournament.NewInstance();
+		GlobalState.Reset();
+		GlobalState.Created = true;
+		NavigationManager.NavigateTo("Game");
+		EndTournament.InvokeAsync();
+	}
+	
+	private void CreateNewTournament() {
+		GlobalState.Reset();
+		NavigationManager.NavigateTo("");
+		EndTournament.InvokeAsync();
+	}
+}
