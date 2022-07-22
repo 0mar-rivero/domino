@@ -1604,19 +1604,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\omriv\\.nuget\\packages\\": {}
+    "C:\\Users\\Alex\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\MyDominoPwa.csproj",
+      "projectUniqueName": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\MyDominoPwa\\MyDominoPwa.csproj",
       "projectName": "MyDominoPwa",
-      "projectPath": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\MyDominoPwa.csproj",
-      "packagesPath": "C:\\Users\\omriv\\.nuget\\packages\\",
-      "outputPath": "D:\\Escuela\\Programación\\domino\\MyDominoPwa\\obj\\",
+      "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\MyDominoPwa\\MyDominoPwa.csproj",
+      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+      "outputPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\MyDominoPwa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\omriv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1628,11 +1628,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj": {
-              "projectPath": "D:\\Escuela\\Programación\\domino\\DominoEngine\\DominoEngine.csproj"
+            "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj": {
+              "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\DominoEngine\\DominoEngine.csproj"
             },
-            "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj": {
-              "projectPath": "D:\\Escuela\\Programación\\domino\\Players\\Players.csproj"
+            "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj": {
+              "projectPath": "C:\\Alex\\Proyectos Pro\\Domino\\Domino\\domino\\Players\\Players.csproj"
             }
           }
         }
@@ -1670,7 +1670,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.7, 6.0.7]"
+            "version": "[6.0.0, 6.0.0]"
           }
         ],
         "frameworkReferences": {
@@ -1678,7 +1678,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.107\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

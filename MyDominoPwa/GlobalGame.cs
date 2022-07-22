@@ -6,7 +6,7 @@ public class GlobalState<TDominoType> {
 	public GameState<int>? State { get; set; }
 	public Game<int> Game1 { get; set; } = new();
 
-	public IEnumerator<GameState<int>>? GameEnumerator { get; set; }
+	public IEnumerator<GameState<int>?>? GameEnumerator { get; set; }
 	
 	public IEnumerator<Game<int>>? Enumerator { get; set; }
 	public Tournament<int>? Tournament { get; set; }

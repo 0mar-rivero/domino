@@ -34,17 +34,6 @@ public static class Program
 
         var judge = new ClassicJudge();
         var tournament = new NGamesTournament<int>(2);
-        var a = tournament.SetJudge(judge).SetTeams(teams).GetEnumerator();
-
-        foreach (var gameState in tournament.SelectMany(game => game)) {
-            System.Console.WriteLine(gameState);
-        }
-
-        while (a.MoveNext()) {
-            var b = a.Current.GetEnumerator();
-            while (b.MoveNext())
-                System.Console.WriteLine(b.Current);
-        }
 
         foreach (var game in tournament.SetJudge(judge).SetTeams(teams))
             foreach (var gameState in game) {

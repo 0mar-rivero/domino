@@ -98,7 +98,7 @@ public class AllVsAllTournament<T> : Tournament<T>
 
 public class DirichletTournament<T> : Tournament<T>
 {
-    private readonly Dictionary<Team<T>, List<IWinneable<T>>> _games = new(); 
+    private readonly Dictionary<Team<T>, int> _games = new(); 
     private readonly int _numberOfWins;
 
     public DirichletTournament(int number) {
@@ -115,19 +115,18 @@ public class DirichletTournament<T> : Tournament<T>
     /// <param name="winneable"></param>
     /// <returns></returns>
     public override IEnumerable<Game<T>> Games(IWinneable<T> winneable) {
+        Teams!.Make(team => _games.Add(team, 0));
         while (EndCondition()) {
             var newWinneable = winneable.NewInstance(Judge!, Teams!); 
             foreach (var game in newWinneable.Games(new Game<T>()))
-                yield return game; 
-            var team = newWinneable.Winner().First();
-            if (!_games.ContainsKey(team)) _games.Add(team, new List<IWinneable<T>>(){newWinneable});
-            else _games[team].Add(newWinneable);
+                yield return game;
+            _games[newWinneable.Winner().First()]++;
         }
     }
 
-    private bool EndCondition() => _games.All(pair => pair.Value.Count() < _numberOfWins);
+    private bool EndCondition() => _games.All(pair => pair.Value < _numberOfWins);
 
-    public override IEnumerable<Team<T>> Winner() => _games.Keys.OrderByDescending(team => _games[team].Count)!;
+    public override IEnumerable<Team<T>> Winner() => _games.Keys.OrderByDescending(team => _games[team])!;
 
     public override IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams) 
         => new DirichletTournament<T>(judge, teams, _numberOfWins); 
@@ -174,10 +173,12 @@ public class PlayOffTournament<T> : Tournament<T>
             count += teamsNumber; // Incrementar el contador de equipos en la fase de eliminatoria
         }
         // Seleccionar los equipos que participaran en la siguiente fase
-        var nextWinsel = NewInstance(Judge!, _rankings.SelectMany(teams => teams.Take((teams.Count() + 1) / 2)))!;
+        var winnersTeams = _rankings.SelectMany(teams => teams.Take((teams.Count() + 1) / 2));
+        _winners = Teams!.Where(team => !winnersTeams.Contains(team));
+        var nextWinsel = NewInstance(Judge!, winnersTeams)!;
         foreach (var game in nextWinsel.Games(winneable))
             yield return game;
-        _winners = nextWinsel.Winner(); // Guardar los equipos ganadores de la fase
+        _winners = nextWinsel.Winner().Concat(_winners); // Guardar los equipos ganadores de la fase
     }
 
     public override IWinneable<T> NewInstance(Judge<T> judge, IEnumerable<Team<T>> teams)
@@ -212,13 +213,12 @@ public class NGamesTournament<T> : Tournament<T>
     /// <param name="winneable"></param>
     /// <returns></returns>
     public override IEnumerable<Game<T>> Games(IWinneable<T> winneable) {
+        Teams!.Make(team => _winners.Add(team, 0));
         for (var i = 0; i < _numberOfGames; i++) {
             var newWinneable = winneable.NewInstance(Judge!, Teams!);
             foreach (var game in newWinneable.Games(new Game<T>()))
-                yield return game;    
-            var winner = newWinneable.Winner().First();
-            if (!_winners.ContainsKey(winner)) _winners.Add(winner, 0);
-            _winners[winner]++;
+                yield return game;
+            _winners[newWinneable.Winner().First()]++;
         }
     }
 

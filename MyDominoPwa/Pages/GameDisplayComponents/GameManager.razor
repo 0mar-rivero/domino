@@ -24,17 +24,23 @@
 } else {
 	<h3>Ganó el team fritura(@(string.Join(", ", GlobalState.Enumerator?.Current.Winner().FirstOrDefault()!)).</h3>
 	<button class="btn btn-success m-2" @onclick="@NextGame">Next Game</button>
+	<Board GameState="@Previous"/>
+	<Hands PlayerHands="@Previous?.Hands"/>
 }
 
 @code {
+	private GameState<int>? Previous { get; set; }
+
 	[Parameter, EditorRequired]
 	public EventCallback ParentStateHasChange { get; set; }
 
 	private bool _isGameOver;
 
 	void NextMove() {
-		if (GlobalState.GameEnumerator != null && !GlobalState.GameEnumerator.MoveNext())
+		if (GlobalState.GameEnumerator is not null && !GlobalState.GameEnumerator.MoveNext())
 			_isGameOver = true;
+		else
+			Previous = GlobalState.GameEnumerator?.Current!;
 	}
 
 	void NextGame() {
